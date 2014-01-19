@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title><f:render section="Title" /></title>
+		<f:base />
+		<link href="{f:uri.resource(path: 'Css/Bootstrap/3.0.0/bootstrap.css')}" rel="stylesheet" />
+		<link href="{f:uri.resource(path: 'Css/Bootstrap/3.0.0/bootstrap-glyphicons.css')}" rel="stylesheet" />
+		<link href="{f:uri.resource(path: 'Css/style.css')}" rel="stylesheet" />
+	</head>
+	<body>
+		<f:flashMessages class="flashmessages" />
+
+		<h1><f:render section="Title" /></h1>
+		<f:render section="Content" />
+	</body>
+</html>

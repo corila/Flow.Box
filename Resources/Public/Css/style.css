@@ -1,0 +1,89 @@
+@CHARSET "UTF-8";
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+
+
+/* START: Header and Sub Custom Style */
+	.bb-header {
+		text-shadow: 0 -1px 0 rgba(0,0,0,.15);
+		background-color: #563d7c;
+		border-color: #463265;
+		box-shadow: 0 1px 0 rgba(255,255,255,.1);
+	}
+	.bb-subheader {
+		color: #fff;
+		background-color: #563D7C;
+		width: 100%;
+	}
+	.home-page .bb-subheader {
+		position: absolute;
+		z-index: 10;
+		opacity: 0.5;
+	}
+	/* BLOG: Blog override style of bootstrap */
+		.navbar-inverse .navbar-nav>.active>a,
+		.navbar-inverse .navbar-nav>.active>a:hover,
+		.navbar-inverse .navbar-nav>.active>a:focus {
+			background-color: #463265;
+		}
+		
+		.navbar-form {
+			padding-right: 0px;
+		}
+	/* BLOG END: Blog override style of bootstrap */
+
+/* END: Header and Sub Custom Style */
+
+
+/* START: Footer and Sub Custom Style */
+
+	/* START: Carousel slideshow */
+	.carousel .item {
+		height: 556px;
+		background-color: #777;
+	}
+	.carousel-inner > .item > img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		min-width: 100%;
+		height: 556px;
+	}
+	/* END: Carousel slideshow */
+
+	#main-content {
+		min-height:458px;
+	}
+	.btn-primary {
+		background-color: #563d7c;
+		border-color: #463265;
+	}
+	.row .col-lg-12 h2 {
+		border-bottom: 1px dotted #563d7c;
+	}
+/* END: Footer and Sub Custom Style */
+
+
+/* START: Footer and Sub Custom Style */
+.bb-footer-info {
+	bottom: 50px;
+	background-color: #463265;
+	min-height:400px;
+	color: #ffffff;
+}
+
+.bb-footer {
+	max-height:50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #ffffff;
+	background-color: #563d7c;
+	text-align: center;
+	border-top: 1px solid #463265;
+	box-shadow: 0 1px 0 rgba(255,255,255,.1);
+}
+/* END: Footer and Sub Custom Style */
+

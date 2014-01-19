@@ -1,0 +1,22 @@
+-
+  name: 'Page action with arguments'
+  uriPattern: 'pages/{page}/{@action}'
+  defaults:
+    '@controller': 'Page'
+  routeParts:
+    page:
+      objectType: 'Flow\Box\Domain\Model\Page'
+      uriPattern: '{title}'
+
+-
+  name: 'Page actions'
+  uriPattern:    'pages/{@action}'
+  defaults:
+    '@controller': 'Page'
+
+-
+  name: 'Fallback action'
+  uriPattern: '(pages)'
+  defaults:
+    '@controller': 'Page'
+    '@action':     'index'
