@@ -1,0 +1,28 @@
+#                                                                        #
+# Settings Configuration for the Flow.Box package       #
+#                                                                        #
+
+TYPO3:
+  Flow:
+    session:
+      inactivityTimeout: 86400
+    security:
+      authentication:
+        authenticationStrategy: oneToken
+        providers:
+          DefaultProvider:
+            provider: 'PersistedUsernamePasswordProvider'
+            entryPoint: 'WebRedirect'
+            entryPointOptions:
+              uri: 'backend'
+
+Flow:
+  Box:
+    limit: 10
+    dateFormat: 'Y-m-d'
+    dateTimeFormat: 'Y-m-d H:i'
+    mailFrom: noreply@example.com
+    itemsPerPage: 10
+    insertAbove: 0
+    insertBelow: 1
+    maximumNumberOfLinks: 5

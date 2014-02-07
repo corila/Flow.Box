@@ -1,4 +1,4 @@
-<f:section name="Header">
+<f:section name="BackendHeader">
 		<header class="navbar navbar-inverse navbar-fixed-top bb-header" role="banner">
 			<div class="container">
 				<div class="navbar-header">
@@ -8,20 +8,29 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					
 				</div>
 				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 					<ul class="nav navbar-nav">
 						<li class="first">
-							<f:link.action controller="Page" action="index">Page</f:link.action>
+							<f:link.action controller="Backend" action="page">Page</f:link.action>
 						</li>
 						<li class="last">
 							<f:link.action controller="Account" action="index">Account</f:link.action>
 						</li>
 					</ul>
 					<ul id="lang-nav" class="nav navbar-nav navbar-right">
-						<li class="active"><a href="/index.php?id=97">Log out</a><i class="lang-bg"></i></li>
-						<li><span class="hidden">Login</span></li>
+						<f:security.ifAuthenticated>
+							<f:then>
+								<li class="active">
+									<f:link.action action="logout">Logout<i class="lang-bg"></i></f:link.action>
+								</li>
+							</f:then>
+							<f:else>
+								<li>
+									<f:link.action action="index">Login<i class="lang-bg"></i></f:link.action>
+								</li>
+							</f:else>
+						</f:security.ifAuthenticated>
 					</ul>
 				</nav>
 			</div>

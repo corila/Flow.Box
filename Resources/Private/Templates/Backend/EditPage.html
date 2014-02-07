@@ -1,0 +1,33 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Edit page "{page.name}"</f:section>
+
+<f:section name="Content">
+	<f:form action="updatePage" object="{page}" objectName="page">
+		<ol>
+			<li>
+				<label for="title">Title</label>
+				<f:form.textfield property="title" id="title" />
+			</li>
+		
+			<li>
+				<label for="subTitle">Sub title</label>
+				<f:form.textfield property="subTitle" id="subTitle" />
+			</li>
+		
+			<li>
+				<label for="publishDate">Publish date</label>
+				<f:form.textfield type="datetime" value="{page.publishDate -> f:format.date(format: 'Y-m-d\TH:i:sP')}" property="publishDate" id="publishDate" />
+			</li>
+		
+			<li>
+				<label for="expireDate">Expire date</label>
+				<f:form.textfield type="datetime" value="{page.expireDate -> f:format.date(format: 'Y-m-d\TH:i:sP')}" property="expireDate" id="expireDate" />
+			</li>
+		
+			<li>
+				<f:form.submit value="Update" />
+			</li>
+		</ol>
+	</f:form>
+</f:section>

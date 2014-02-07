@@ -1,0 +1,25 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of accounts</f:section>
+
+<f:section name="Content">
+	<f:if condition="{accounts}">
+		<f:then>
+			<ul>
+				<f:for each="{accounts}" as="account">
+					<li>
+						<f:link.action action="show" arguments="{account: account}">{account.name}</f:link.action>
+						<f:link.action action="edit" arguments="{account: account}">Edit</f:link.action>
+						<f:form action="delete" arguments="{account: account}">
+							<f:form.submit value="Delete" />
+						</f:form>
+					</li>
+				</f:for>
+			</ul>
+		</f:then>
+		<f:else>
+			<p>No accounts created yet.</p>
+		</f:else>
+	</f:if>
+	<p><f:link.action action="new">Create a new account</f:link.action></p>
+</f:section>

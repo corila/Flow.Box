@@ -1,3 +1,26 @@
+##
+# Backend Blog
+##
+-
+  name: 'Page action with arguments'
+  uriPattern: 'backend/{page}/{@action}'
+  defaults:
+    '@controller': 'Backend'
+  routeParts:
+    backend:
+      objectType: 'Flow\Box\Domain\Model\Page'
+      uriPattern: '{title}'
+
+-
+  name: 'Fallback action'
+  uriPattern: 'backend(/{@action})'
+  defaults:
+    '@controller': 'Backend'
+    '@action':     'index'
+
+##
+# Blog of Page
+##
 -
   name: 'Page action with arguments'
   uriPattern: 'pages/{page}/{@action}'
@@ -20,3 +43,18 @@
   defaults:
     '@controller': 'Page'
     '@action':     'index'
+
+##
+# Blog of Account
+##
+-
+  name: 'Acount action with arguments'
+  uriPattern: 'accounts/{account}/{@action}'
+  defaults:
+    '@controller': 'Account'
+
+-
+  name: 'Account actions'
+  uriPattern:    'accouts(/{@action})'
+  defaults:
+    '@controller': 'Account'

@@ -1,0 +1,35 @@
+<f:layout name="Backend" />
+
+<f:section name="Title">New page</f:section>
+
+<f:section name="Content">
+	<p>Just fill out the following form to create a new page:</p>
+
+	<f:form action="createPage" objectName="newPage">
+		<ol>
+			<li>
+				<label for="title">Page</label>
+				<f:form.textfield property="title" id="title" />
+			</li>
+		
+			<li>
+				<label for="subTitle">Page</label>
+				<f:form.textfield property="subTitle" id="subTitle" />
+			</li>
+		
+			<li>
+				<label for="publishDate">Page</label>
+				<f:form.textfield type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d\TH:i:sP')}" property="publishDate" id="publishDate" />
+			</li>
+		
+			<li>
+				<label for="expireDate">Page</label>
+				<f:form.textfield type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d\TH:i:sP')}" property="expireDate" id="expireDate" />
+			</li>
+		
+			<li>
+				<f:form.submit value="Create" />
+			</li>
+		</ol>
+	</f:form>
+</f:section>
