@@ -1,9 +1,19 @@
+-
+  name: 'Flow.Box Routes'
+  uriPattern: '{@controller}(/{@action})'
+  defaults:
+    '@package':    'Flow.Box'
+    '@controller': ''
+    '@action':     'index'
+    '@format':     'html'
+  appendExceedingArguments: TRUE
+
 ##
 # Backend Blog
 ##
 -
-  name: 'Page action with arguments'
-  uriPattern: 'backend/{page}/{@action}'
+  name: 'Backend action with arguments'
+  uriPattern: 'backend/{@controller}(/{@action})'
   defaults:
     '@controller': 'Backend'
   routeParts:
@@ -17,6 +27,15 @@
   defaults:
     '@controller': 'Backend'
     '@action':     'index'
+
+-
+  name: 'fallback'
+  uriPattern: ''
+  defaults:
+    '@package':    'Flow.Box'
+    '@controller': 'Backend'
+    '@action':     'index'
+    '@format':     'html'
 
 ##
 # Blog of Page
