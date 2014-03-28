@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "cc.management.ui.js",
+  "sourceRoot": "../../../Private/Coffeescript/",
+  "sources": [
+    "Main.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;AAAA,EAAA,CAAC,SAAC,CAAD,GAAA;WACC,OAAO,CAAC,GAAR,CAAY,aAAZ,EADD;EAAA,CAAD,CAAA,CAEE,MAFF,CAAA,CAAA;AAAA"
+}

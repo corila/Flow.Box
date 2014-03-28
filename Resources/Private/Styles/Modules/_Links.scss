@@ -1,0 +1,11 @@
+// Using the default styles
+.action {
+  @include button;
+  color: $link-font-color;
+  background-color: $link-background-color;
+}
+
+.action:hover {
+  background-color: $link-hover-background-color;
+  color: $link-hover-font-color;
+}

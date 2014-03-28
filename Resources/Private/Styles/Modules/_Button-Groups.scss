@@ -1,0 +1,29 @@
+.button-group {
+
+  a.button {
+    border-radius: 0;
+    border-top: $button-group-border;
+    border-bottom: $button-group-border;
+
+    :active {
+      background-color: $button-group-active-background-color;
+      color: $button-group-active-color;
+    }
+
+  }
+
+  li {
+
+    :first-child .button {
+      border-bottom-left-radius: 3px;
+      border-top-left-radius: 3px;
+    }
+
+    :last-child .button {
+      border-bottom-right-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+    
+  }
+
+}
