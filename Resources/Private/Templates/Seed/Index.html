@@ -10,12 +10,14 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th>Title</th>
+								<th>No</th>
+								<th width="300">Name</th>
 								<th colspan="2">Action</th>
 							</tr>
 						</thead>
-					<f:for each="{seeds}" as="seed">
+					<f:for each="{seeds}" as="seed" iteration="iterators">
 						<tr>
+							<td>{iterators.cycle}</td>
 							<td>
 								<f:link.action action="show" arguments="{seed: seed}">{seed.name}</f:link.action>
 							</td>
