@@ -49,6 +49,6 @@
   uriPattern: ''
   defaults:
     '@package':    'Flow.Box'
-    '@controller': 'Page'
+    '@controller': 'Seed'
     '@action':     'index'
     '@format':     'html'
