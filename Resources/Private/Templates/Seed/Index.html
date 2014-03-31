@@ -6,20 +6,22 @@
 	<div class="row">
 		<f:if condition="{seeds}">
 			<f:then>
-				<div class="col-lg-3 col-md-3 col-sm-3">
+				<div class="col-sm-6">
 					<table class="table" id="sortable">
 						<thead>
 							<tr>
 								<th>No</th>
-								<th width="300">Name</th>
+								<th>Order</th>
+								<th id="col-name">Name</th>
 								<th colspan="2">Action</th>
 							</tr>
 						</thead>
 					<f:for each="{seeds}" as="seed" iteration="iterators">
-						<tr>
+						<tr id="recordsArray_{seed.orderItem}">
 							<td>{iterators.cycle}</td>
+							<td>{seed.orderItem}</td>
 							<td>
-								<f:link.action action="show" arguments="{seed: seed}">{seed.name}</f:link.action>
+								<f:link.action action="show" name="item" id="{seed.identifier}" arguments="{seed: seed}">{seed.name}</f:link.action>
 							</td>
 							<td>
 								<f:link.action action="edit" arguments="{seed: seed}">Edit</f:link.action>

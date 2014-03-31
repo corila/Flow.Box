@@ -77,6 +77,26 @@ class SeedController extends ActionController {
 		$this->redirect('index');
 	}
 
+	/**
+	 * @return void
+	 */
+	public function updateOrderAction() {
+		if ($this->request->hasArgument('recordsArray')) {
+			$updateRecordsArray = $this->request->getArgument('recordsArray');
+
+			$listingCounter = 1;
+			foreach ($updateRecordsArray as $recordIDValue) {
+				$item = $this->seedRepository->findOneByOrderItem($recordIDValue);
+				$item->setOrderItem($listingCounter);
+				$this->seedRepository->update($item);
+				$listingCounter = $listingCounter + 1;
+			}
+			$this->persistenceManager->persistAll();
+			return TRUE;
+		}
+		//\typo3\flow\var_dump($updateRecordsArray);
+		//die('jjjjjjjjjjj');
+	}
 }
 
 ?>

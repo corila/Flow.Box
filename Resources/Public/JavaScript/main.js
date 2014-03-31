@@ -1,7 +1,11 @@
 $(function() {
 	$( "table#sortable tbody" ).sortable({
+		opacity: 0.6,
+		cursor: 'move',
 		update: function() {
-			var order = $(this).sortable("serialize");
+			var order = $(this).sortable("serialize"); 
+			$.post("/seed/updateOrder", order, function(theResponse){
+			}); 
 		},
 		revert: true
 	});
