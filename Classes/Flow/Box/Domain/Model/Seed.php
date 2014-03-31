@@ -15,10 +15,29 @@ use Doctrine\ORM\Mapping as ORM;
 class Seed {
 
 	/**
+	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+	 * @Flow\Inject
+	 */
+	protected $persistenceManager;
+
+	/**
 	 * @var string
 	 */
 	protected $name;
 
+	/**
+	 * @var int
+	 */
+	protected $orderItem;
+
+	/**
+	 * Get identifier
+	 *
+	 * @return string
+	 */
+	public function getIdentifier() {
+		return $this->persistenceManager->getIdentifierByObject($this);
+	}
 
 	/**
 	 * @return string
@@ -35,5 +54,19 @@ class Seed {
 		$this->name = $name;
 	}
 
+	/**
+	 * @return int
+	 */
+	public function getOrderItem() {
+		return $this->orderItem;
+	}
+	
+	/**
+	 * @param int $orderItem
+	 * @return void
+	 */
+	public function setOrderItem($orderItem) {
+		$this->orderItem = $orderItem;
+	}
 }
 ?>
