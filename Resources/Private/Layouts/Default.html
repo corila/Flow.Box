@@ -18,22 +18,7 @@
 		<script src="{f:uri.resource(path: 'JavaScript/JQuery/jquery-2.1.0.min.js')}" type="text/javascript"></script>
 		<script src="{f:uri.resource(path: 'JavaScript/JQuery/jquery-ui-1.10.4.js')}" type="text/javascript"></script>
 		<script src="{f:uri.resource(path: 'JavaScript/Bootstrap/3.0.0/bootstrap.min.js')}" type="text/javascript"></script>
+		<script src="{f:uri.resource(path: 'JavaScript/main.js')}" type="text/javascript"></script>
 
-		<script type="text/javascript">
-			$(function() {
-				$( "table#sortable tbody" ).sortable({
-					update: function() {
-						var order = $(this).sortable("serialize");
-					},
-					revert: true
-				});
-				$( "#draggable" ).draggable({
-					connectToSortable: "#sortable",
-					helper: "clone",
-					revert: "invalid"
-				});
-				$( "table#sortable" ).disableSelection();
-			});
-		</script>
 	</body>
 </html>
