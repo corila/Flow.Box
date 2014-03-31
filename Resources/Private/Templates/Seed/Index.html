@@ -1,0 +1,41 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of seeds</f:section>
+
+<f:section name="Content">
+	<div class="row">
+		<f:if condition="{seeds}">
+			<f:then>
+				<div class="col-lg-3 col-md-3 col-sm-3">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th colspan="2">Action</th>
+							</tr>
+						</thead>
+					<f:for each="{seeds}" as="seed">
+						<tr>
+							<td>
+								<f:link.action action="show" arguments="{seed: seed}">{seed.name}</f:link.action>
+							</td>
+							<td>
+								<f:link.action action="edit" arguments="{seed: seed}">Edit</f:link.action>
+							</td>
+							<td>
+								<f:form action="delete" arguments="{seed: seed}">
+									<f:form.submit value="Delete" />
+								</f:form>
+							</td>
+						</li>
+					</f:for>
+					</table>
+				</div>
+			</f:then>
+			<f:else>
+				<p>No seeds created yet.</p>
+			</f:else>
+		</f:if>
+		</div>
+		<div class="row"><p><f:link.action action="new">Create a new seed</f:link.action></p></div>
+</f:section>
