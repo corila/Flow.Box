@@ -50,7 +50,7 @@ class SeedController extends ActionController {
 	 */
 	public function createAction(Seed $newSeed) {
 		$newItemOrder = 0;
-		$greatestOrderItem = $this->seedRepository->findGreatestOrder();
+		$greatestOrderItem = $this->seedRepository->findGreatestOrder($newSeed->getParentSeed());
 		if ($greatestOrderItem) {
 			$newItemOrder = $greatestOrderItem->getOrderItem();
 		}

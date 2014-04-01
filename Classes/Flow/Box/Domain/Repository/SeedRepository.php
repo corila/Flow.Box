@@ -40,8 +40,9 @@ class SeedRepository extends Repository {
 	 *
 	 * @return Seed
 	 */
-	public function findGreatestOrder() {
+	public function findGreatestOrder($parent = NULL) {
 		$query = $this->createQuery();
+		$query->matching($query->equals('parentSeed', $parent));
 		return $query->setOrderings(array('orderItem' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))->execute()->getFirst();
 	}
 
