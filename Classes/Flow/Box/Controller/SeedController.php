@@ -102,7 +102,6 @@ class SeedController extends ActionController implements DragDropInterface {
 				$this->seedRepository->update($item);
 				$listingCounter = $listingCounter + 1;
 			}
-			$this->persistenceManager->persistAll();
 			return TRUE;
 		} else {
 			return FALSE;
