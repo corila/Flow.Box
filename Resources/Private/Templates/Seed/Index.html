@@ -24,7 +24,7 @@
 						<f:for each="{seeds}" as="seed" iteration="iterators">
 							<tr id="recordsArray_{seed.orderItem}">
 								<td>
-									<f:link.action action="show" name="item" id="{seed.identifier}" arguments="{seed: seed}">{seed.name}</f:link.action>
+									<f:link.action action="show" name="item" arguments="{seed: seed}">{seed.name}</f:link.action>
 								</td>
 								<td>
 									{seed.quantity}
@@ -40,9 +40,9 @@
 								</td>
 							</tr>
 						</f:for>
+							<tr class="hidden"><td><f:form.hidden name="orderType" value="parent" /></td></tr>
 						</tbody>
 					</table>
-					<div id="contentRight"></div>
 				</div>
 			</f:then>
 			<f:else>

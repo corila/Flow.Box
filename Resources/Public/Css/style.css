@@ -91,5 +91,8 @@ form.delete-icon {
 #sortable th#col-name {
 	width: 200px;
 }
+.hidden {
+	visibility: hidden;
+}
 /* END: Footer and Sub Custom Style */
 

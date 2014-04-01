@@ -31,6 +31,12 @@ class Seed {
 	protected $childrenSeeds;
 
 	/**
+	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+	 * @Flow\Inject
+	 */
+	protected $persistenceManager;
+
+	/**
 	 * @var string
 	 */
 	protected $name;
@@ -114,6 +120,14 @@ class Seed {
 	 */
 	public function setQuantity($quantity) {
 		$this->quantity = $quantity;
+	}
+
+	/**
+	 * Get identifier
+	 * @return string
+	 */
+	public function getIdentifier() {
+		return $this->persistenceManager->getIdentifierByObject($this);
 	}
 }
 ?>

@@ -3,9 +3,16 @@ $(function() {
 		opacity: 0.6,
 		cursor: 'move',
 		update: function() {
-			var order = $(this).sortable("serialize"); 
-			$.post("/seed/updateOrder", order, function(theResponse){
-			}); 
+			if ($('tr.hidden input').val() == 'parent') {
+				var order = $(this).sortable("serialize"); 
+				$.post("/seed/updateOrderParent", order, function(theResponse){
+				}); 
+			} else if($('tr.hidden input#type').val() == 'children'){
+				var order = $(this).sortable("serialize") + '&parent='+$('tr.hidden input#parent').val(); 
+				$.post("/seed/updateOrderChild", order, function(theResponse){
+				}); 
+			}
+			
 		},
 		revert: true
 	});

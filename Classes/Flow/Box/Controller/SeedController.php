@@ -30,6 +30,8 @@ class SeedController extends ActionController implements DragDropInterface {
 	 * @return void
 	 */
 	public function showAction(Seed $seed) {
+		$childSeeds = $this->seedRepository->findOrderByParent($seed);
+		$this->view->assign('childrenSeeds', $childSeeds);
 		$this->view->assign('seed', $seed);
 	}
 
@@ -89,13 +91,35 @@ class SeedController extends ActionController implements DragDropInterface {
 	/**
 	 * @return void
 	 */
-	public function updateOrderAction() {
+	public function updateOrderParentAction() {
 		if ($this->request->hasArgument('recordsArray')) {
 			$updateRecordsArray = $this->request->getArgument('recordsArray');
 
 			$listingCounter = 1;
 			foreach ($updateRecordsArray as $recordIDValue) {
-				$item = $this->seedRepository->findOneByOrderItem($recordIDValue);
+				$item = $this->seedRepository->findOrderOfParent($recordIDValue);
+				$item->setOrderItem($listingCounter);
+				$this->seedRepository->update($item);
+				$listingCounter = $listingCounter + 1;
+			}
+			$this->persistenceManager->persistAll();
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	/**
+	 * @return void
+	 */
+	public function updateOrderChildAction() {
+		if ($this->request->hasArgument('recordsArray')) {
+			$updateRecordsArray = $this->request->getArgument('recordsArray');
+			$parent = $this->request->getArgument('parent');
+			$listingCounter = 1;
+			foreach ($updateRecordsArray as $recordIDValue) {
+				$item = $this->seedRepository->findOrderOfChild($parent,$recordIDValue);
+				\typo3\flow\var_dump($item);
 				$item->setOrderItem($listingCounter);
 				$this->seedRepository->update($item);
 				$listingCounter = $listingCounter + 1;
