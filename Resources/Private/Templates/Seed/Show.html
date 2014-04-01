@@ -1,13 +1,53 @@
 <f:layout name="Default" />
 
-<f:section name="Title">Show seed"{seed.name}"</f:section>
+<f:section name="Title">{seed.name}</f:section>
 
 <f:section name="Content">
-	<table>
-		<tr>
-			<th>Name</th>
-			<td>{seed.name}</td>
-		</tr>
-	</table>
-	<f:link.action action="index">Back</f:link.action>
+	<div class="seedDetial">
+		<p>Price : {seed.quantity}</p>
+	</div>
+	<h1>Sub seed</h1>
+	<div class="pull-right"><f:link.action action="new" arguments="{parentSeed: seed}" class="btn btn-primary btn-sm">
+		<span class="glyphicon glyphicon-plus"></span> Create New Seed</f:link.action>
+	</div>
+	<f:if condition="{seed.childrenSeeds}">
+		<f:then>
+				<div class="col-sm-6">
+					<table class="table" id="sortable">
+						<thead>
+							<tr>
+								<th id="col-name">Name</th>
+								<th>Quantity(Kg)</th>
+								<th colspan="2">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+						<f:for each="{seeds}" as="seed" iteration="iterators">
+							<tr id="recordsArray_{seed.orderItem}">
+								<td>
+									<f:link.action action="show" name="item" id="{seed.identifier}" arguments="{seed: seed}">{seed.name}</f:link.action>
+								</td>
+								<td>
+									{seed.quantity}
+								</td>
+								<td>
+									<f:link.action action="edit" arguments="{seed: seed}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span></f:link.action>
+
+									<f:form action="delete" arguments="{seed: seed}" class="delete-icon">
+										<button class="btn btn-danger btn-xs delete-confirmation" type="submit">
+											<span class="glyphicon glyphicon-trash"></span>
+										</button>
+									</f:form>
+								</td>
+							</tr>
+						</f:for>
+						</tbody>
+					</table>
+					<div id="contentRight"></div>
+				</div>
+			</f:then>
+			<f:else>
+				<p>No seeds created yet.</p>
+			</f:else>
+	</f:if>
 </f:section>
