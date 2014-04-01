@@ -44,8 +44,12 @@ class SeedController extends ActionController {
 	 * @return void
 	 */
 	public function createAction(Seed $newSeed) {
+		$newItemOrder = 0;
 		$greatestOrderItem = $this->seedRepository->findGreatestOrder();
-		$newItemOrder = $greatestOrderItem->getOrderItem();
+		if ($greatestOrderItem) {
+			$newItemOrder = $greatestOrderItem->getOrderItem();
+		}
+
 		$newSeed->setOrderItem($newItemOrder+1);
 		$this->seedRepository->add($newSeed);
 		$this->redirect('index');

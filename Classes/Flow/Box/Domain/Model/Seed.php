@@ -15,10 +15,20 @@ use Doctrine\ORM\Mapping as ORM;
 class Seed {
 
 	/**
-	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
-	 * @Flow\Inject
+	 * The parentSeed
+	 * @var \Flow\Box\Domain\Model\Seed
+	 * @ORM\ManyToOne
+	 * @ORM\JoinColumn(referencedColumnName="persistence_object_identifier")
 	 */
-	protected $persistenceManager;
+	protected $parentSeed;
+	
+	/**
+	 * The children seeds
+	 *
+	 * @var \Doctrine\Common\Collections\Collection<\Flow\Box\Domain\Model\Seed>
+	 * @ORM\OneToMany(targetEntity="Flow\Box\Domain\Model\Seed", mappedBy="parentSeed", cascade={"remove"})
+	 */
+	protected $childrenSeed;
 
 	/**
 	 * @var string
@@ -38,12 +48,27 @@ class Seed {
 	protected $quantity;
 
 	/**
-	 * Get identifier
-	 *
-	 * @return string
+	 * @return \Flow\Box\Domain\Model\Seed
 	 */
-	public function getIdentifier() {
-		return $this->persistenceManager->getIdentifierByObject($this);
+	public function getParentSeed() {
+		return $this->parentSeed;
+	}
+	
+	/**
+	 * @param \Flow\Box\Domain\Model\Seed $parentSeed
+	 * @return void
+	 */
+	public function setParentSeed($parentSeed) {
+		$this->parentSeed = $parentSeed;
+	}
+
+	/**
+	 * Get all children of this seed
+	 *
+	 * @return \Doctrine\Common\Collections\Collection<\Flow\Box\Domain\Model\Seed> The children of this seed
+	 */
+	public function getChildrenSeeds() {
+		return $this->childrenSeeds;
 	}
 
 	/**
