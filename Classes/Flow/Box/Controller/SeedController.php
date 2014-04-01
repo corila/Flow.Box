@@ -22,7 +22,7 @@ class SeedController extends ActionController {
 	 * @return void
 	 */
 	public function indexAction() {
-		$this->view->assign('seeds', $this->seedRepository->findAll());
+		$this->view->assign('seeds', $this->seedRepository->findMainSeeds());
 	}
 
 	/**
@@ -37,6 +37,7 @@ class SeedController extends ActionController {
 	 * @return void
 	 */
 	public function newAction() {
+		$this->view->assign('seeds', $this->seedRepository->findAll());
 	}
 
 	/**

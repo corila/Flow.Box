@@ -25,6 +25,17 @@ class SeedRepository extends Repository {
 	}
 
 	/**
+	 * get all main seeds aascending
+	 *
+	 * @return array Seed
+	 */
+	public function findMainSeeds() {
+		$query = $this->createQuery();
+		$constrain = $query->equals('parentSeed', NULL);
+		return $query->matching($constrain)->setOrderings(array('orderItem' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_ASCENDING))->execute();
+	}
+
+	/**
 	 * get the greatest order
 	 *
 	 * @return Seed
