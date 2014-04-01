@@ -34,10 +34,14 @@ class SeedController extends ActionController {
 	}
 
 	/**
+	 * @param \Flow\Box\Domain\Model\Seed $seed
 	 * @return void
 	 */
-	public function newAction() {
+	public function newAction(Seed $parentSeed = NULL) {
 		$this->view->assign('seeds', $this->seedRepository->findAll());
+		if ($parentSeed) {
+			$this->view->assign('parentSeed', $parentSeed);
+		}
 	}
 
 	/**

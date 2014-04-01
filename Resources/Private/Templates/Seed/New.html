@@ -3,31 +3,62 @@
 <f:section name="Title">New seed</f:section>
 
 <f:section name="Content">
-	<f:form action="create" objectName="newSeed" class="form-horizontal">
-		<div class="control-group form-group">
-			<label class="control-label col-sm-2" for="parentSeed">Parent</label>
-			<div class="controls col-sm-5">
-				<f:form.select property="parentSeed" options="{seeds}" optionLabelField="name" prependOptionLabel="Please Choose" class="form-control" />
-			</div>
-		</div>
-		<div class="control-group form-group">
-			<label for="name" class="control-label col-sm-2">Name</label>
-			<div class="controls col-sm-5">
-				<f:form.textfield property="name" id="name" placeholder="Name" class="form-control" />
-			</div>
-		</div>
-		<div class="control-group form-group">
-			<label for="title" class="control-label col-sm-2">Quantity</label>
-			<div class="controls col-sm-5">
-				<f:form.textfield property="quantity" id="quantity" placeholder="Name" class="form-control" />
-			</div>
-		</div>
-
-		<div class="form-actions form-group">
-			<div class="col-sm-offset-2 col-sm-5">
-				<input type="submit" value="Update" name="" class="btn btn-primary">
-				<f:link.action action="index" class="btn btn-default">Cancel</f:link.action>
-			</div>
-		</div>
-	</f:form>
+	<f:if condition="{parentSeed}">
+		<f:then>
+			<f:form action="create"  arguments="{seed: parentSeed}" objectName="newSeed" class="form-horizontal">
+				<f:form.hidden property="parentSeed" value="{parentSeed}" />
+				<div class="control-group form-group">
+					<label for="name" class="control-label col-sm-2">Name</label>
+					<div class="controls col-sm-5">
+						<f:form.textfield property="name" id="name" placeholder="Name" class="form-control" />
+					</div>
+				</div>
+				<div class="control-group form-group">
+					<label for="title" class="control-label col-sm-2">Quantity</label>
+					<div class="controls col-sm-5">
+						<f:form.textfield property="quantity" id="quantity" placeholder="Name" class="form-control" />
+					</div>
+				</div>
+		
+				<div class="form-actions form-group">
+					<div class="col-sm-offset-2 col-sm-5">
+						<input type="submit" value="Update" name="" class="btn btn-primary">
+						<f:link.action action="index" class="btn btn-default">Cancel</f:link.action>
+					</div>
+				</div>
+			</f:form>
+		</f:then>
+		<f:else>
+			<f:form action="create" objectName="newSeed" class="form-horizontal">
+				<div class="control-group form-group">
+					<label class="control-label col-sm-2" for="parentSeed">Parent</label>
+					<div class="controls col-sm-5">
+						<f:form.select property="parentSeed" options="{seeds}" optionLabelField="name" prependOptionLabel="Please Choose" class="form-control" />
+					</div>
+				</div>
+				<div class="control-group form-group">
+					<label for="name" class="control-label col-sm-2">Name</label>
+					<div class="controls col-sm-5">
+						<f:form.textfield property="name" id="name" placeholder="Name" class="form-control" />
+					</div>
+				</div>
+				<div class="control-group form-group">
+					<label for="title" class="control-label col-sm-2">Quantity</label>
+					<div class="controls col-sm-5">
+						<f:form.textfield property="quantity" id="quantity" placeholder="Name" class="form-control" />
+					</div>
+				</div>
+		
+				<div class="form-actions form-group">
+					<div class="col-sm-offset-2 col-sm-5">
+						<input type="submit" value="Update" name="" class="btn btn-primary">
+						<f:link.action action="index" class="btn btn-default">Cancel</f:link.action>
+					</div>
+				</div>
+					</div>
+				</div>
+			</f:form>
+		</f:else>
+	</f:if>
+	
 </f:section>
