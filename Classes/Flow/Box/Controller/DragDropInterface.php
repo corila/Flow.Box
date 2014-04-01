@@ -10,5 +10,5 @@ namespace Flow\Box\Controller;
 
 
 interface DragDropInterface {
-	public function updateOrderAction();
-} 
+	public function updateOrderParentAction();
+}
