@@ -1,39 +1,48 @@
 <f:layout name="Default" />
 
-<f:section name="Title">A list of seeds</f:section>
+<f:section name="Title">
+	A list of seeds
+</f:section>
 
 <f:section name="Content">
 	<div class="row">
+		<div class="pull-right"><f:link.action action="new" class="btn btn-primary btn-sm">
+			<span class="glyphicon glyphicon-plus"></span> Create New Seed</f:link.action>
+		</div>
 		<f:if condition="{seeds}">
 			<f:then>
 				<div class="col-sm-6">
 					<table class="table" id="sortable">
 						<thead>
 							<tr>
-								<th>No</th>
-								<th>Order</th>
 								<th id="col-name">Name</th>
+								<th>Quantity(Kg)</th>
 								<th colspan="2">Action</th>
 							</tr>
 						</thead>
-					<f:for each="{seeds}" as="seed" iteration="iterators">
-						<tr id="recordsArray_{seed.orderItem}">
-							<td>{iterators.cycle}</td>
-							<td>{seed.orderItem}</td>
-							<td>
-								<f:link.action action="show" name="item" id="{seed.identifier}" arguments="{seed: seed}">{seed.name}</f:link.action>
-							</td>
-							<td>
-								<f:link.action action="edit" arguments="{seed: seed}">Edit</f:link.action>
-							</td>
-							<td>
-								<f:form action="delete" arguments="{seed: seed}">
-									<f:form.submit value="Delete" />
-								</f:form>
-							</td>
-						</li>
-					</f:for>
+						<tbody>
+						<f:for each="{seeds}" as="seed" iteration="iterators">
+							<tr id="recordsArray_{seed.orderItem}">
+								<td>
+									<f:link.action action="show" name="item" id="{seed.identifier}" arguments="{seed: seed}">{seed.name}</f:link.action>
+								</td>
+								<td>
+									{seed.quantity}
+								</td>
+								<td>
+									<f:link.action action="edit" arguments="{seed: seed}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span></f:link.action>
+
+									<f:form action="delete" arguments="{seed: seed}" class="delete-icon">
+										<button class="btn btn-danger btn-xs delete-confirmation" type="submit">
+											<span class="glyphicon glyphicon-trash"></span>
+										</button>
+									</f:form>
+								</td>
+							</tr>
+						</f:for>
+						</tbody>
 					</table>
+					<div id="contentRight"></div>
 				</div>
 			</f:then>
 			<f:else>
@@ -41,5 +50,4 @@
 			</f:else>
 		</f:if>
 		</div>
-		<div class="row"><p><f:link.action action="new">Create a new seed</f:link.action></p></div>
 </f:section>

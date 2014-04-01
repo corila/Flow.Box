@@ -44,8 +44,10 @@ class SeedController extends ActionController {
 	 * @return void
 	 */
 	public function createAction(Seed $newSeed) {
+		$greatestOrderItem = $this->seedRepository->findGreatestOrder();
+		$newItemOrder = $greatestOrderItem->getOrderItem();
+		$newSeed->setOrderItem($newItemOrder+1);
 		$this->seedRepository->add($newSeed);
-		$this->addFlashMessage('Created a new seed.');
 		$this->redirect('index');
 	}
 
@@ -63,7 +65,6 @@ class SeedController extends ActionController {
 	 */
 	public function updateAction(Seed $seed) {
 		$this->seedRepository->update($seed);
-		$this->addFlashMessage('Updated the seed.');
 		$this->redirect('index');
 	}
 
@@ -73,7 +74,6 @@ class SeedController extends ActionController {
 	 */
 	public function deleteAction(Seed $seed) {
 		$this->seedRepository->remove($seed);
-		$this->addFlashMessage('Deleted a seed.');
 		$this->redirect('index');
 	}
 
@@ -93,9 +93,9 @@ class SeedController extends ActionController {
 			}
 			$this->persistenceManager->persistAll();
 			return TRUE;
+		} else {
+			return FALSE;
 		}
-		//\typo3\flow\var_dump($updateRecordsArray);
-		//die('jjjjjjjjjjj');
 	}
 }
 

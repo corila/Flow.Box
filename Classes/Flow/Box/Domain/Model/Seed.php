@@ -27,9 +27,15 @@ class Seed {
 
 	/**
 	 * @var int
-	 * @ORM\Column(type="integer", nullable=true)
+	 * @ORM\Column(type="integer")
 	 */
 	protected $orderItem;
+
+	/**
+	 * @var int
+	 * @ORM\Column(type="integer", nullable=true)
+	 */
+	protected $quantity;
 
 	/**
 	 * Get identifier
@@ -68,6 +74,21 @@ class Seed {
 	 */
 	public function setOrderItem($orderItem) {
 		$this->orderItem = $orderItem;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getQuantity() {
+		return $this->quantity;
+	}
+	
+	/**
+	 * @param int $quantity
+	 * @return void
+	 */
+	public function setQuantity($quantity) {
+		$this->quantity = $quantity;
 	}
 }
 ?>

@@ -85,8 +85,11 @@ body {
 	border-top: 1px solid #463265;
 	box-shadow: 0 1px 0 rgba(255,255,255,.1);
 }
+form.delete-icon {
+	margin: -22px 0 0 28px;
+}
 #sortable th#col-name {
-	width: 220px;
+	width: 200px;
 }
 /* END: Footer and Sub Custom Style */
 

@@ -14,14 +14,24 @@ use TYPO3\Flow\Persistence\Repository;
  */
 class SeedRepository extends Repository {
 
-/**
+	/**
 	 * get all seeds aascending
 	 *
-	 * @return array Service
+	 * @return array Seed
 	 */
 	public function findAll() {
 		$query = $this->createQuery();
 		return $query->setOrderings(array('orderItem' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_ASCENDING))->execute();
+	}
+
+	/**
+	 * get the greatest order
+	 *
+	 * @return Seed
+	 */
+	public function findGreatestOrder() {
+		$query = $this->createQuery();
+		return $query->setOrderings(array('orderItem' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))->execute()->getFirst();
 	}
 
 }

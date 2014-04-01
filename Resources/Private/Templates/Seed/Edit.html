@@ -1,18 +1,27 @@
 <f:layout name="Default" />
 
-<f:section name="Title">Edit seed "{seed.name}"</f:section>
+<f:section name="Title">Edit {seed.name}</f:section>
 
 <f:section name="Content">
-	<f:form action="update" object="{seed}" objectName="seed">
-		<ol>
-			<li>
-				<label for="name">Name</label>
-				<f:form.textfield property="name" id="name" />
-			</li>
-		
-			<li>
-				<f:form.submit value="Update" />
-			</li>
-		</ol>
+	<f:form action="update" object="{seed}" objectName="seed" class="form-horizontal">
+		<div class="control-group form-group">
+			<label for="title" class="control-label col-sm-2">Name</label>
+			<div class="controls col-sm-5">
+				<f:form.textfield property="name" id="name" placeholder="Name" class="form-control" />
+			</div>
+		</div>
+		<div class="control-group form-group">
+			<label for="title" class="control-label col-sm-2">Quantity</label>
+			<div class="controls col-sm-5">
+				<f:form.textfield property="quantity" id="quantity" placeholder="Name" class="form-control" />
+			</div>
+		</div>
+
+			<div class="form-actions form-group">
+			<div class="col-sm-offset-2 col-sm-5">
+				<input type="submit" value="Update" name="" class="btn btn-primary">
+				<f:link.action action="index" class="btn btn-default">Cancel</f:link.action>
+			</div>
+		</div>
 	</f:form>
 </f:section>
