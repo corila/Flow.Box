@@ -25,7 +25,7 @@
 						<f:for each="{seed.childrenSeeds}" as="childSeed" iteration="iterators">
 							<tr id="recordsArray_{childSeed.orderItem}">
 								<td>
-									<f:link.action action="show" name="item" id="{childSeed.identifier}" arguments="{seed: seed}">{seed.name}</f:link.action>
+									<f:link.action action="show" name="item" id="{childSeed.identifier}" arguments="{seed: childSeed}">{childSeed.name}</f:link.action>
 								</td>
 								<td>
 									{childSeed.quantity}
@@ -33,7 +33,7 @@
 								<td>
 									<f:link.action action="edit" arguments="{seed: childSeed}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span></f:link.action>
 
-									<f:form action="delete" arguments="{seed: childSeed 	}" class="delete-icon">
+									<f:form action="delete" arguments="{seed: childSeed}" class="delete-icon">
 										<button class="btn btn-danger btn-xs delete-confirmation" type="submit">
 											<span class="glyphicon glyphicon-trash"></span>
 										</button>
