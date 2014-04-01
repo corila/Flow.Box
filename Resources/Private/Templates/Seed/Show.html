@@ -10,7 +10,7 @@
 	<div class="pull-right"><f:link.action action="new" arguments="{parentSeed: seed}" class="btn btn-primary btn-sm">
 		<span class="glyphicon glyphicon-plus"></span> Create New Seed</f:link.action>
 	</div>
-	<f:if condition="{seed.childrenSeeds}">
+	<f:if condition="{seed.childrenSeed}">
 		<f:then>
 				<div class="col-sm-6">
 					<table class="table" id="sortable">
