@@ -10,7 +10,7 @@ use TYPO3\Flow\Annotations as Flow;
 use TYPO3\Flow\Mvc\Controller\ActionController;
 use Flow\Box\Domain\Model\Seed;
 
-class SeedController extends ActionController {
+class SeedController extends ActionController implements DragDropInterface {
 
 	/**
 	 * @Flow\Inject
