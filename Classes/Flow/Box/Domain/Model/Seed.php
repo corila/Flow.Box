@@ -21,14 +21,14 @@ class Seed {
 	 * @ORM\JoinColumn(referencedColumnName="persistence_object_identifier")
 	 */
 	protected $parentSeed;
-	
+
 	/**
 	 * The children seeds
 	 *
 	 * @var \Doctrine\Common\Collections\Collection<\Flow\Box\Domain\Model\Seed>
 	 * @ORM\OneToMany(targetEntity="Flow\Box\Domain\Model\Seed", mappedBy="parentSeed", cascade={"remove"})
 	 */
-	protected $childrenSeed;
+	protected $childrenSeeds;
 
 	/**
 	 * @var string
@@ -53,7 +53,7 @@ class Seed {
 	public function getParentSeed() {
 		return $this->parentSeed;
 	}
-	
+
 	/**
 	 * @param \Flow\Box\Domain\Model\Seed $parentSeed
 	 * @return void
@@ -92,7 +92,7 @@ class Seed {
 	public function getOrderItem() {
 		return $this->orderItem;
 	}
-	
+
 	/**
 	 * @param int $orderItem
 	 * @return void
@@ -107,7 +107,7 @@ class Seed {
 	public function getQuantity() {
 		return $this->quantity;
 	}
-	
+
 	/**
 	 * @param int $quantity
 	 * @return void

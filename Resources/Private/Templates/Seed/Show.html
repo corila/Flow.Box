@@ -10,7 +10,7 @@
 	<div class="pull-right"><f:link.action action="new" arguments="{parentSeed: seed}" class="btn btn-primary btn-sm">
 		<span class="glyphicon glyphicon-plus"></span> Create New Seed</f:link.action>
 	</div>
-	<f:if condition="{seed.childrenSeed}">
+	<f:if condition="{seed.childrenSeeds}">
 		<f:then>
 				<div class="col-sm-6">
 					<table class="table" id="sortable">
@@ -22,18 +22,18 @@
 							</tr>
 						</thead>
 						<tbody>
-						<f:for each="{seeds}" as="seed" iteration="iterators">
-							<tr id="recordsArray_{seed.orderItem}">
+						<f:for each="{seed.childrenSeeds}" as="childSeed" iteration="iterators">
+							<tr id="recordsArray_{childSeed.orderItem}">
 								<td>
-									<f:link.action action="show" name="item" id="{seed.identifier}" arguments="{seed: seed}">{seed.name}</f:link.action>
+									<f:link.action action="show" name="item" id="{childSeed.identifier}" arguments="{seed: seed}">{seed.name}</f:link.action>
 								</td>
 								<td>
-									{seed.quantity}
+									{childSeed.quantity}
 								</td>
 								<td>
-									<f:link.action action="edit" arguments="{seed: seed}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span></f:link.action>
+									<f:link.action action="edit" arguments="{seed: childSeed}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span></f:link.action>
 
-									<f:form action="delete" arguments="{seed: seed}" class="delete-icon">
+									<f:form action="delete" arguments="{seed: childSeed 	}" class="delete-icon">
 										<button class="btn btn-danger btn-xs delete-confirmation" type="submit">
 											<span class="glyphicon glyphicon-trash"></span>
 										</button>
