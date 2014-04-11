@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" source-language="de" target-language="en" datatype="plaintext">
+		<body>
+			<!-- ### Flow.Box ### -->
+			<trans-unit id="flow.box.login">
+				<source>Login</source>
+				<target>Anmelden</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
