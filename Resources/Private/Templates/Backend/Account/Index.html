@@ -1,0 +1,33 @@
+<f:layout name="Backend" />
+
+<f:section name="Title">A list of accounts</f:section>
+
+
+<f:section name="Content">
+	<p><f:link.action action="new">Create a new account</f:link.action></p>
+	<f:if condition="{accounts}">
+		<f:then>
+			<table class="table">
+				<thead>
+				<tr>
+					<th>Name</th>
+					<th>Action</th>
+				</tr>
+				</thead>
+				<tbody>
+				<f:for each="{accounts}" as="account">
+					<tr>
+						<td><f:link.action action="edit" arguments="{account: account}">{account.name}</f:link.action></td>
+						<td>
+							<f:form action="delete" arguments="{account: account}"><f:form.submit value="Delete" /></f:form>
+						</td>
+					</tr>
+				</f:for>
+				</tbody>
+			</table>
+		</f:then>
+		<f:else>
+			<p>No accounts created yet.</p>
+		</f:else>
+	</f:if>
+</f:section>

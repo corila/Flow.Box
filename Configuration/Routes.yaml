@@ -1,26 +1,3 @@
--
-  name: 'Flow.Box Routes'
-  uriPattern: '{@controller}(/{@action})'
-  defaults:
-    '@package':    'Flow.Box'
-    '@controller': ''
-    '@action':     'index'
-    '@format':     'html'
-  appendExceedingArguments: TRUE
-
-##
-# Backend Blog
-##
--
-  name: 'Backend action with arguments'
-  uriPattern: 'backend/{@controller}(/{@action})'
-  defaults:
-    '@controller': 'Backend'
-  routeParts:
-    backend:
-      objectType: 'Flow\Box\Domain\Model\Page'
-      uriPattern: '{title}'
-
 ##
 # Blog of Page
 ##
@@ -40,9 +17,45 @@
 ##
 -
   name: 'Acount action with arguments'
-  uriPattern: 'accounts/{account}/{@action}'
+  uriPattern: 'backend/{@controller}/{account}(/{@action})'
   defaults:
+    '@subpackage': 'Backend'
     '@controller': 'Account'
+
+##
+# Backend Blog
+##
+-
+  name: 'Backend action with arguments'
+  uriPattern: 'backend/{@controller}(/{@action})'
+  defaults:
+    '@subpackage': 'Backend'
+    '@controller': 'Dashboard'
+    '@action': 'index'
+    '@format':     'html'
+  appendExceedingArguments: TRUE
+
+-
+  name: 'Backend Login'
+  uriPattern: 'backend'
+  defaults:
+    '@package':    'Flow.Box'
+    '@subpackage': 'Backend'
+    '@controller': 'Login'
+    '@action':     'index'
+    '@format':     'html'
+  appendExceedingArguments: TRUE
+
+-
+  name: 'Flow.Box Routes'
+  uriPattern: '{@controller}(/{@action})'
+  defaults:
+    '@package':    'Flow.Box'
+    '@controller': ''
+    '@action':     'index'
+    '@format':     'html'
+  appendExceedingArguments: TRUE
+
 
 -
   name: 'fallback'

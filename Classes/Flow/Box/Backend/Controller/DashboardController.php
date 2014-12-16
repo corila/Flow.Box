@@ -1,5 +1,5 @@
 <?php
-namespace Flow\Box\Controller;
+namespace Flow\Box\Backend\Controller;
 
 /*                                                                        *
  * This script belongs to the TYPO3 Flow package "Flow.Box".              *
@@ -7,10 +7,9 @@ namespace Flow\Box\Controller;
  *                                                                        */
 
 use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Mvc\Controller\ActionController;
 use Flow\Box\Domain\Model\Page;
 
-class PageController extends ActionController {
+class DashboardController extends MainBackendController {
 
 	/**
 	 * @Flow\Inject
@@ -22,38 +21,31 @@ class PageController extends ActionController {
 	 * @return void
 	 */
 	public function indexAction() {
-		$this->view->assign('pages', $this->pageRepository->findAll());
-	}
-
-	/**
-	 * @param \Flow\Box\Domain\Model\Page $page
-	 * @return void
-	 */
-	public function showAction(Page $page) {
-		$this->view->assign('page', $page);
+		//$this->view->assign('pages', $this->pageRepository->findAll());
 	}
 
 	/**
 	 * @return void
 	 */
-	public function newAction() {
+	public function newPageAction() {
+		
 	}
 
 	/**
 	 * @param \Flow\Box\Domain\Model\Page $newPage
 	 * @return void
 	 */
-	public function createAction(Page $newPage) {
+	public function createPageAction(Page $newPage) {
 		$this->pageRepository->add($newPage);
 		$this->addFlashMessage('Created a new page.');
-		$this->redirect('index');
+		$this->redirect('page');
 	}
 
 	/**
 	 * @param \Flow\Box\Domain\Model\Page $page
 	 * @return void
 	 */
-	public function editAction(Page $page) {
+	public function editPageAction(Page $page) {
 		$this->view->assign('page', $page);
 	}
 
@@ -61,22 +53,11 @@ class PageController extends ActionController {
 	 * @param \Flow\Box\Domain\Model\Page $page
 	 * @return void
 	 */
-	public function updateAction(Page $page) {
+	public function updatePageAction(Page $page) {
 		$this->pageRepository->update($page);
 		$this->addFlashMessage('Updated the page.');
 		$this->redirect('index');
 	}
-
-	/**
-	 * @param \Flow\Box\Domain\Model\Page $page
-	 * @return void
-	 */
-	public function deleteAction(Page $page) {
-		$this->pageRepository->remove($page);
-		$this->addFlashMessage('Deleted a page.');
-		$this->redirect('index');
-	}
-
 }
 
 ?>

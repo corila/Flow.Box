@@ -11,18 +11,24 @@
 				</div>
 				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 					<ul class="nav navbar-nav">
-						<li class="first">
-							<f:link.action controller="Backend" action="page">Page</f:link.action>
+						<li class="first {f:if(condition: activeMenu.Dashboard, then: 'active')}">
+							<f:link.action action="index" controller="Dashboard" subpackage="Backend">DashBoard</f:link.action>
 						</li>
-						<li class="last">
-							<f:link.action controller="Account" action="index">Account</f:link.action>
+						<li class="{f:if(condition: activeMenu.Page, then: 'active')}">
+							<f:link.action action="page" controller="Dashboard" subpackage="Backend">Page</f:link.action>
+						</li>
+						<li class="{f:if(condition: activeMenu.Project, then: 'active')}">
+							<f:link.action action="index" controller="Project" subpackage="Backend">Project</f:link.action>
+						</li>
+						<li class="last {f:if(condition: activeMenu.Account, then: 'active')}">
+							<f:link.action action="index" controller="Account" subpackage="Backend">Account</f:link.action>
 						</li>
 					</ul>
 					<ul id="lang-nav" class="nav navbar-nav navbar-right">
 						<f:security.ifAuthenticated>
 							<f:then>
 								<li class="active">
-									<f:link.action action="logout">Logout<i class="lang-bg"></i></f:link.action>
+									<f:link.action action="logout" controller="Login" subpackage="Backend">Logout<i class="lang-bg"></i></f:link.action>
 								</li>
 							</f:then>
 							<f:else>

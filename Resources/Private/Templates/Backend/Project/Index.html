@@ -1,0 +1,21 @@
+<f:layout name="Backend" />
+
+<f:section name="Title">Project</f:section>
+
+<f:section name="Content">
+	<p><f:link.action action="new">Create New Project</f:link.action></p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Title</th>
+			</tr>
+		</thead>
+		<tbody>
+			<f:for each="{projects}" as="project">
+				<tr>
+					<td>{project.title}</td>
+				</tr>
+			</f:for>
+		</tbody>
+	</table>
+</f:section>

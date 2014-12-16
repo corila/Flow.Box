@@ -1,0 +1,33 @@
+<f:layout name="Backend" />
+
+<f:section name="Title">Show account"{account.name}"</f:section>
+
+<f:section name="Content">
+	<table>
+		<tr>
+			<th>Password</th>
+			<td>{account.password}</td>
+		</tr>
+	
+		<tr>
+			<th>Name</th>
+			<td>{account.name}</td>
+		</tr>
+	
+		<tr>
+			<th>Electronic addresses</th>
+			<td>{account.electronicAddresses}</td>
+		</tr>
+	
+		<tr>
+			<th>Primary electronic address</th>
+			<td>{account.primaryElectronicAddress}</td>
+		</tr>
+	
+		<tr>
+			<th>Accounts</th>
+			<td>{account.accounts}</td>
+		</tr>
+	</table>
+	<f:link.action action="index">Back</f:link.action>
+</f:section>
