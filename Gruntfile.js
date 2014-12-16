@@ -38,19 +38,8 @@ module.exports = function(grunt) {
                     sourceMap: '<%= dirs.js.dest %>/app.min.map',
                     sourceMappingURL: 'app.min.map',
                     sourceMapPrefix: 3
-//                    compress: {
-//                        drop_console: true
-//                    }
                 }
             }
-        },
-        copy: {
-//            main: {
-//                flatten: true,
-//                expand: true,
-//                src: '<%= dirs.bower %>/magnific-popup/dist/magnific-popup.css',
-//                dest: '<%= dirs.sass.dest %>/'
-//            }
         },
         concat: {
             dist: {
@@ -67,7 +56,7 @@ module.exports = function(grunt) {
                     sourceMap: true
                 },
                 files: {
-                    '<%= dirs.coffee.dest %>/cc.management.ui.js': '<%= dirs.coffee.src %>/**/*.coffee'
+                    '<%= dirs.coffee.dest %>/script.js': '<%= dirs.coffee.src %>*//***/*//*.coffee'
                 }
             }
         },
@@ -102,7 +91,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Default task.
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['build', 'watch']);
 
     // Build task.
     grunt.registerTask('build', ['compass', 'coffee', 'uglify', 'concat']);

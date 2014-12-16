@@ -2,7 +2,7 @@
   "name": "flow-box",
   "version": "0.1.0",
   "authors": [
-    "Sebastian Helzle <helzle@punkt.de>"
+    "Chanthou Nim <chanthou.nim@gmail.com>"
   ],
   "description": "",
   "private": true,
@@ -14,11 +14,11 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~1.10",
-    "foundation": "~5.2.1"
+      "jquery": "~1.10",
+      "foundation": "~5.2.1",
+      "bootstrap-sass-official": "3.3.1"
   },
   "resolutions": {
     "jquery": "~1.10"
   }
 }
-
