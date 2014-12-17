@@ -16,12 +16,22 @@
 							<f:link.action controller="Page" action="index">Page</f:link.action>
 						</li>
 						<li class="last">
-							<f:link.action controller="Account" action="index">Account</f:link.action>
+							<a href="#">account</a>
 						</li>
 					</ul>
 					<ul id="lang-nav" class="nav navbar-nav navbar-right">
-						<li class="active"><a href="/index.php?id=97">Log out</a><i class="lang-bg"></i></li>
-						<li><span class="hidden">Login</span></li>
+						<f:security.ifAuthenticated>
+							<f:then>
+								<li>
+									<f:link.action action="logout" controller="Login" subpackage="Backend">Logout<i class="lang-bg"></i></f:link.action>
+								</li>
+							</f:then>
+							<f:else>
+								<li>
+									<f:link.action action="index" controller="Login" subpackage="Backend">Login<i class="lang-bg"></i></f:link.action>
+								</li>
+							</f:else>
+						</f:security.ifAuthenticated>
 					</ul>
 				</nav>
 			</div>
