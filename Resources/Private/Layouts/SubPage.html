@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="{f:uri.resource(path: 'Images/favicon.ico')}">
+		<title><f:render section="Title" /> - Anachakh</title>
+		<f:render  partial="IncludeStyles" />
+		<f:base />
+	</head>
+	<body>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=193749890831080&version=v2.0";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<div class="navbar-wrapper" id="header">
+			<div class="main-nav-container"></div>
+			<div class="container">
+				<f:render section="Header" partial="Header" arguments="{_all}"/>
+				<f:render section="MainMenu" partial="MainMenu" arguments="{_all}"/>
+			</div>
+		</div>
+
+		<f:render section="ShoppingCart" partial="ShoppingCart" arguments="{_all}"/>
+
+		<div class="container marketing">
+			<div class="row">
+				<f:render section="LeftSite" partial="LeftSite" arguments="{_all}"/>
+				<div class="col-md-8 col-sm-7 col-xs-12 column-middle">
+					<f:render section="Content" />
+				</div>
+			</div>
+		</div>
+
+		<f:render section="Footer" partial="Footer"/>
+		<!-- include js files in partial -->
+		<f:render  partial="IncludeJavaScripts" arguments="{_all}"/>
+	</body>
+</html>

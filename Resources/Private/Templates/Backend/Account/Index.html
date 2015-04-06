@@ -1,0 +1,55 @@
+{namespace box=Flow\Box\ViewHelpers}
+<f:layout name="Backend" />
+<f:section name="SiteTitle">Account</f:section>
+<f:section name="PageTitle">
+	Account
+	<f:render partial="Buttons/New" />
+</f:section>
+<f:section name="Content">
+	<f:if condition="{users}">
+		<f:then>
+			<box:widget.paginate objects="{users}" as="paginatedUsers" configuration="{itemsPerPage: 20}">
+				<table class="table table-striped">
+					<thead>
+					<tr>
+						<th>Username</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Role</th>
+						<th>Action</th>
+					</tr>
+					</thead>
+					<tbody>
+						<f:for each="{paginatedUsers}" as="user">
+							<tr>
+								<td>{user.accounts.0.accountIdentifier}</td>
+								<td>{user.firstName}</td>
+								<td>{user.lastName}</td>
+								<td>{user.email}</td>
+								<td>
+									<f:for each="{user.accounts.0.roles}" key="roleKey" as="role">
+										{role.name}
+									</f:for>
+								</td>
+								<td>
+									<f:link.action action="edit" subpackage="backend" arguments="{user: user}" class="btn btn-primary btn-xs" title="Edit">
+										<span class="glyphicon glyphicon-edit"></span>
+									</f:link.action>
+									<f:form action="delete" arguments="{user: user}" class="delete-icon">
+										<button type="submit" class="btn btn-sm btn-danger btn-delete" >
+											<span class="glyphicon glyphicon-trash"></span>
+										</button>
+									</f:form>
+								</td>
+							</tr>
+						</f:for>
+					</tbody>
+				</table>
+			</box:widget.paginate>
+		</f:then>
+		<f:else>
+			<p>No accounts created yet.</p>
+		</f:else>
+	</f:if>
+</f:section>

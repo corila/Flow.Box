@@ -1,0 +1,28 @@
+{namespace box=Flow\Box\ViewHelpers}
+<f:section name="LeftSite">
+	<div class="col-lg-2 col-sm-3 column-left">
+		<!-- search form -->
+		<f:render partial="SearchForm" arguments="{_all}" />
+
+		<!-- category list-->
+		<div class="list-category white-radius-box">
+			<h4 class="title"><box:label sysKey="category"/></h4>
+			<ul>
+				<f:for each="{allCategories}" as="categoryItem">
+					<li>
+						<f:link.action action="category" arguments="{category: categoryItem}" class="text-justify">{categoryItem.name}</f:link.action>
+					</li>
+				</f:for>
+			</ul>
+		</div>
+
+		<!-- left advertisements-->
+		<div class="advertising">
+			<f:for each="{advertisementsLeft}" as="advertisement" key="label">
+				<f:link.external uri="{advertisement.link}" title="{advertisement.linkTitle}" target="_blank">
+					<img alt="{advertisement.linkTitle}" src="{f:uri.resource(resource: advertisement.imageResource)}" />
+				</f:link.external>
+			</f:for>
+		</div>
+	</div>
+</f:section>

@@ -1,0 +1,16 @@
+{namespace box=Flow\Box\ViewHelpers}
+<f:section name="Footer">
+	<footer>
+		<div class="container">
+			<ul class="address">
+				<li><i class="icon glyphicon glyphicon-phone "></i><box:label sysKey="phone_one"/></li>
+				<li><i class="icon icon-mail"></i><f:link.email email="<box:label sysKey='info_email'/>" /></li>
+				<li><i class="icon icon-location"></i><box:label sysKey="address_one"/></li>
+			</ul>
+			<div class="copyright">
+				<p><box:label sysKey="copy_right"/> </p>
+			</div>
+		</div>
+	</footer>
+	<div id="go_to_top"><i class="go-to-top"></i></div>
+</f:section>

@@ -1,0 +1,11 @@
+<f:layout name="Backend" />
+
+<f:section name="SiteTitle">Edit Fe Menu</f:section>
+<f:section name="PageTitle">Edit Fe Menu</f:section>
+
+<f:section name="Content">
+	<f:form action="update" class="form-horizontal" object="{feMenu}" objectName="feMenu">
+		<f:render partial="FeMenu/FormFields"  arguments="{_all}" />
+		<f:render partial="Buttons/Update" />
+	</f:form>
+</f:section>

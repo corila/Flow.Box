@@ -1,0 +1,11 @@
+<f:layout name="Backend" />
+
+<f:section name="SiteTitle">New Account</f:section>
+<f:section name="PageTitle">New Account</f:section>
+
+<f:section name="Content">
+	<f:form action="create" class="form-horizontal" objectName="newUser">
+		<f:render partial="Account/FormFields" arguments="{_all}"/>
+		<f:render partial="Buttons/Update" />
+	</f:form>
+</f:section>

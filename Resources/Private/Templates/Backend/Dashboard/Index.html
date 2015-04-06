@@ -1,0 +1,101 @@
+<f:layout name="Backend" />
+
+<f:section name="SiteTitle">Dashboard</f:section>
+<f:section name="PageTitle">Dashboard</f:section>
+
+<f:section name="Content">
+	<div class="row placeholder">
+		<!-- running out books-->
+		<div class="padding-left-0 col-md-6">
+			<h4 class="sub-header"><span class="text-danger glyphicon glyphicon-warning-sign"></span> Running Out Books</h4>
+			<table class="table table-striped">
+				<thead>
+				<tr>
+					<th>Title</th>
+					<th>Category</th>
+					<th>Publisher</th>
+					<th>Quantity</th>
+					<th class="action-icons">Actions</th>
+				</tr>
+				</thead>
+				<tbody>
+				<f:for each="{runningOutBooks}" as="runningOutBook">
+					<tr>
+						<td>{runningOutBook.title}</td>
+						<td>{runningOutBook.category.name}</td>
+						<td>{runningOutBook.publisher.name}</td>
+						<td>{runningOutBook.quantity}</td>
+						<td>
+							<f:link.action action="edit" controller="book" arguments="{book: runningOutBook}" class="btn btn-primary btn-xs" title="Edit">
+								<span class="glyphicon glyphicon-edit"></span>
+							</f:link.action>
+						</td>
+					</tr>
+				</f:for>
+
+				</tbody>
+			</table>
+		</div>
+		<!-- other -->
+		<div class="col-md-6">
+			<div class="list-group">
+				<div class="list-group-item labelGroup">
+					<span>
+						<b>Settings</b>
+					</span>
+					<f:link.action action="index" controller="label" class="pull-right">
+						<span class="glyphicon glyphicon-th"></span> More
+					</f:link.action>
+				</div>
+
+				<f:for each="{labels}" as="label">
+					<f:link.action class="list-group-item" action="edit" arguments="{label: label}" controller="label"> {label.labelName} </f:link.action>
+				</f:for>
+			</div>
+		</div>
+	</div>
+<br>
+	<!-- pending sales -->
+	<f:if condition="{salesPending}">
+		<h3 class="sub-header"><span class="text-info glyphicon glyphicon-bullhorn"></span> Pending Sales</h3>
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+				<tr>
+					<th>Sold Date</th>
+					<th>List Books</th>
+					<th>Quantity</th>
+					<th>Pending</th>
+					<th width="10%">Action</th>
+				</tr>
+				</thead>
+				<tbody>
+				<f:for each="{salesPending}" as="salePending">
+					<tr>
+						<td><f:format.date format="{settings.dateTimeFormat}">{salePending.timestamp}</f:format.date></td>
+						<td>
+							<f:for each="{salePending.books}" as="saleBook">
+								{saleBook.title}<br>
+							</f:for>
+						</td>
+						<td>
+							{salePending.quantity}
+						</td>
+						<td>
+							<span data-target="remove" data-bind="{salePending.identity}" class="cursor-pointer saleReport-pending glyphicon
+								glyphicon-{f:if(condition: salePending.pending, then: 'ok-circle text-success', else: 'remove-circle')}"
+								  title="{f:if(condition: salePending.pending, then: 'Pending', else: 'Complete')}">
+							</span>
+						</td>
+						<td>
+							<f:link.action action="edit" controller="saleReport" arguments="{saleReport: salePending, controller: 'dashboard'}" class="btn btn-primary btn-xs" title="Edit">
+								<span class="glyphicon glyphicon-edit"></span>
+							</f:link.action>
+						</td>
+					</tr>
+				</f:for>
+				</tbody>
+			</table>
+		</div>
+	</f:if>
+</f:section>

@@ -1,0 +1,42 @@
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="firstName">First Name <span class="required">*</span></label>
+	<div class="col-sm-5">
+		<f:form.textfield property="firstName" id="firstName" class="form-control required" />
+	</div>
+</div>
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="lastName">Last Name</label>
+	<div class="col-sm-5">
+		<f:form.textfield property="lastName" id="lastName" class="form-control" />
+	</div>
+</div>
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="email">Email <span class="required">*</span></label>
+	<div class="col-sm-5">
+		<f:form.textfield property="email" id="email" class="form-control required" />
+	</div>
+</div>
+
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="username">UserName <span class="required">*</span></label>
+	<div class="col-sm-5">
+		<f:form.textfield class="form-control required" name="username" id="username" value="{user.accounts.0.accountIdentifier}"/>
+	</div>
+</div>
+
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="password">Password <span class="required">*</span></label>
+	<div class="col-sm-5">
+		<f:form.password class="form-control {f:if(condition: user, else: 'required')}" name="password" id="password" />
+		<f:if condition="{user}">
+			<p class="help-block"><b>Note:</b> Please leave it blank if you don't want to change password.</p>
+		</f:if>
+	</div>
+</div>
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="passwordConfirm">Confirm Password</label>
+	<div class="col-sm-5">
+		<f:form.password class="form-control {f:if(condition: user, else: 'required')} passwordConfirm" name="passwordConfirm" id="passwordConfirm" />
+	</div>
+</div>
+<f:render partial="Account/Roles" arguments="{_all}"/>

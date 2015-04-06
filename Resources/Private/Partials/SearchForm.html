@@ -1,0 +1,24 @@
+{namespace box=Flow\Box\ViewHelpers}
+<div class="search white-radius-box">
+	<f:form action="searchBooks" controller="Page" class="form-horizontal search-form">
+		<div class="form-group">
+			<f:form.select optionValueField="fullName" optionLabelField="fullName" name="author" options="{allAuthors}" multiple="1" class="form-control" id="author"/>
+			<input type="hidden" id="authorPlaceHolder" value="<box:label sysKey='book_detail_author'/>"/>
+		</div>
+		<div class="form-group">
+			<f:form.select optionValueField="name" optionLabelField="name" name="category" options="{allCategories}" multiple="1" class="form-control" id="category"/>
+			<input type="hidden" id="categoryPlaceHolder" value="<box:label sysKey='category'/>"/>
+		</div>
+		<div class="form-group">
+			<f:form.select optionValueField="name" optionLabelField="name" name="publisher" options="{allPublishers}" multiple="1" class="form-control" id="publisher"/>
+			<input type="hidden" id="publisherPlaceHolder" value="<box:label sysKey='book_detail_publisher'/>"/>
+		</div>
+		<div class="form-group">
+			<input type="text" name="title" class="form-control" id="inputTitle" placeholder="<box:label sysKey='book_title'/>" />
+		</div>
+
+		<div class="form-group">
+			<button type="submit" class="btn btn-default"><box:label sysKey="btn_search"/> </button>
+		</div>
+	</f:form>
+</div>

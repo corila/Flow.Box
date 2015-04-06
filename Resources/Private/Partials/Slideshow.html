@@ -1,0 +1,39 @@
+{namespace box=Flow\Box\ViewHelpers}
+<f:section name="Slideshow">
+	<div class="container">
+		<f:render partial="HtmlFlashMessage" arguments="{params: params}"/>
+		<div id="myCarousel" class="carousel slide">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<f:for each="{slidedBooks}" as="slidedBook" iteration="iterator">
+					<li data-target="#myCarousel" data-slide-to="{iterator.index}" class="{f:if(condition: iterator.isFirst, then: 'active')}"></li>
+				</f:for>
+			</ol>
+			<div class="carousel-inner">
+				<f:for each="{slidedBooks}" as="slidedBook" iteration="iterator">
+					<div class="item {f:if(condition: iterator.isFirst, then: 'active')}">
+						<div class="img-slide col-sm-4">
+							<img src="{f:uri.resource(resource: slidedBook.imageResource)}" alt="{slidedBook.title}" width="225" height="340">
+						</div>
+						<div class="carousel-caption col-sm-7">
+							<h2>{slidedBook.title}</h2>
+							<p class="text-justify">
+								<f:format.crop maxCharacters="700">
+									<f:format.nl2br>{slidedBook.highlight}</f:format.nl2br>
+								</f:format.crop>
+							</p>
+
+							<p><f:link.action action="detail" class="btn btn-large btn-primary" arguments="{book: slidedBook}"><box:label sysKey="read_more"/></f:link.action></p>
+						</div>
+					</div>
+				</f:for>
+			</div>
+
+
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
+					class="glyphicon glyphicon-chevron-left"></span></a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next"><span
+					class="glyphicon glyphicon-chevron-right"></span></a>
+		</div>
+	</div>
+</f:section>

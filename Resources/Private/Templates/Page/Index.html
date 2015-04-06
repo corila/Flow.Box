@@ -1,48 +1,20 @@
-<f:layout name="Default" />
+{namespace box=Flow\Box\ViewHelpers}
+<f:layout name="Home" />
 
-<f:section name="Title">A list of Pages</f:section>
+<f:section name="Title">Home Page</f:section>
 
 <f:section name="Content">
-		<div class="row">
-			<f:if condition="{pages}">
-				<f:then>
-				<div class="col-lg-3 col-md-3 col-sm-3">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>Title</th>
-								<th colspan="2">Action</th>
-							</tr>
-						</thead>
-						<f:for each="{pages}" as="page">
-							<tr>
-								<td>
-									<f:link.action action="show" arguments="{page: page}">{page.title}</f:link.action>
-								</td>
-								<td>
-									<f:link.action action="edit" arguments="{page: page}">Edit</f:link.action>
-								</td>
-								<td>
-									<f:form action="delete" arguments="{page: page}">
-										<f:form.submit value="Delete" />
-									</f:form>
-								</td>
-							</tr>
-						</f:for>
-					</table>
-				</div>
-				<div clss="col-lg-9 col-md-9 col-sm-9">
-					<h2>Option</h2>
-				</div>
-				</f:then>
-				<f:else>
-					<div class="col-lg-3 col-md-3 col-sm-3">
-						<p>No pages created yet.</p>
-					</div>
-				</f:else>
-			</f:if>
+	<div class="content">
+		<div class="row block">
+			<div class="thum-header">
+				<h3><box:label sysKey="best_sale"/></h3>
+			</div>
 		</div>
-		<div class="row">
-			<p><f:link.action action="new">Create a new page</f:link.action></p>
+		<!--  Latest-->
+		<div class="row block">
+			<div class="thum-header">
+				<h3><box:label sysKey="latest_book"/> </h3>
+			</div>
 		</div>
+	</div>
 </f:section>

@@ -1,0 +1,13 @@
+<f:form.validationResults>
+	<f:if condition="{validationResults.flattenedErrors}">
+		<f:for each="{validationResults.subResults}" as="object">
+			<f:for each="{object.subResults}" key="fieldName" as="field">
+				<f:for each="{field.errors}" as="error">
+					<div class="alert alert-danger">
+						{fieldName}:{error.message}
+					</div>
+				</f:for>
+			</f:for>
+		</f:for>
+	</f:if>
+</f:form.validationResults>

@@ -1,0 +1,60 @@
+{namespace box=Flow\Box\ViewHelpers}
+<f:layout name="Backend" />
+
+<f:section name="SiteTitle">Label</f:section>
+<f:section name="PageTitle">
+	Labels
+	<f:render partial="Buttons/New" />
+</f:section>
+
+<f:section name="Content">
+	<f:form class="form-inline" action="index">
+		<div class="form-group">
+			<f:form.textfield name="title" value="{title}" placeholder="Label" class="form-control" />
+		</div>
+		<button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span> Filter</button>
+	</f:form>
+	<f:if condition="{labels}">
+		<f:then>
+			<box:widget.paginate objects="{labels}" as="paginatedLabels" configuration="{itemsPerPage: 20}">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						
+						<th>Key</th>
+						<th>Value(Khmer)</th>
+						<th>Value(English)</th>
+						<th class="action-icons">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<f:for each="{paginatedLabels}" as="label">
+						<tr>
+							<td>{label.labelName}</td>
+							<td>{label.sysKey}</td>
+							<td>{label.sysValue -> f:format.crop(maxCharacters: '50')}</td>
+							<td></td>
+							<td>
+								<f:link.action action="edit" arguments="{label: label}" class="btn btn-primary btn-xs" title="Edit">
+									<span class="glyphicon glyphicon-edit"></span>
+								</f:link.action>
+
+								<f:form action="delete" arguments="{label: label}" class="delete-icon">
+									<button type="submit" class="btn btn-sm btn-danger btn-delete" >
+										<span class="glyphicon glyphicon-trash">
+										</span>
+									</button>
+								</f:form>
+							</td>
+						</tr>
+					</f:for>
+				</tbody>
+			</table>
+			</box:widget.paginate>
+		</f:then>
+		<f:else>
+			<p>No label created yet.</p>
+		</f:else>
+	</f:if>
+</f:section>

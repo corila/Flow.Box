@@ -1,0 +1,11 @@
+<f:layout name="Backend" />
+
+<f:section name="SiteTitle">New Label</f:section>
+<f:section name="PageTitle">New Label</f:section>
+
+<f:section name="Content">
+	<f:form action="create" class="form-horizontal" objectName="newLabel">
+		<f:render partial="Label/FormFields"/>
+		<f:render partial="Buttons/Create" />
+	</f:form>
+</f:section>

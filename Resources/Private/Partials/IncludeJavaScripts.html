@@ -1,0 +1,11 @@
+{namespace box=Flow\Box\ViewHelpers}
+<script type="text/javascript">
+	var lang = {
+		"search_validation": "<box:label sysKey='search_validation'/>",
+		"captcha_validation": "<box:label sysKey='captcha_validation'/>"
+	}
+</script>
+<script src="{f:uri.resource(path: 'JavaScript/Script.min.js')}" type="text/javascript"></script>
+<f:if condition="{0: activeLanguage.km} == {0: 'active'}">
+	<script src="{f:uri.resource(path: 'JavaScript/JQuery-validation/messages_km.js')}" type="text/javascript"></script>
+</f:if>

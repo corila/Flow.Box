@@ -1,0 +1,11 @@
+<f:layout name="Backend" />
+
+<f:section name="SiteTitle">New Fe Menu</f:section>
+<f:section name="PageTitle">New Fe Menu</f:section>
+
+<f:section name="Content">
+	<f:form action="create" class="form-horizontal" objectName="newFeMenu">
+		<f:render partial="FeMenu/FormFields" arguments="{_all}"/>
+		<f:render partial="Buttons/Create" />
+	</f:form>
+</f:section>

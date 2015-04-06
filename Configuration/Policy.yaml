@@ -1,0 +1,40 @@
+resources:
+  methods:
+##
+# User
+##
+    Flow_Box_Backend_DashboardControllerActions_ForUser: 'within(Flow\Box\Backend\Controller\DashboardController) && method(public .*->.*Action())'
+    Flow_Box_Backend_AccountControllerActions_ForUser: 'method(Flow\Box\Backend\Controller\AccountController->(edit|update)Action())'
+    Flow_Box_Backend_LabelControllerActions_ForUser: 'method(Flow\Box\Backend\Controller\LabelController->(index|edit|update)Action())'
+##
+# Admin
+##
+    Flow_Box_Backend_AccountControllerActions_ForAdmin: 'within(Flow\Box\Backend\Controller\AccountController) && method(public .*->.*Action())'
+    Flow_Box_Backend_FeMenuControllerActions_ForAdmin: 'within(Flow\Box\Backend\Controller\FeMenuController) && method(public .*->.*Action())'
+    Flow_Box_Backend_LabelControllerActions_ForAdmin: 'method(Flow\Box\Backend\Controller\LabelController->(index|edit|update)Action())'
+##
+# Supper Admin
+##
+    Flow_Box_Backend_LabelControllerActions_ForSupperAdmin: 'within(Flow\Box\Backend\Controller\LabelController) && method(public .*->.*Action())'
+
+roles:
+  User: []
+  Admin: [ User ]
+  SupperAdmin: [ Admin ]
+
+acls:
+  User:
+    methods:
+      Flow_Box_Backend_DashboardControllerActions_ForUser: GRANT
+      Flow_Box_Backend_AccountControllerActions_ForUser: GRANT
+      Flow_Box_Backend_LabelControllerActions_ForUser: GRANT
+
+  Admin:
+    methods:
+      Flow_Box_Backend_AccountControllerActions_ForAdmin: GRANT
+      Flow_Box_Backend_FeMenuControllerActions_ForAdmin: GRANT
+      Flow_Box_Backend_LabelControllerActions_ForAdmin: GRANT
+
+  SupperAdmin:
+    methods:
+      Flow_Box_Backend_LabelControllerActions_ForSupperAdmin: GRANT

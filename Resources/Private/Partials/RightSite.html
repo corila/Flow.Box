@@ -1,0 +1,13 @@
+{namespace box=Flow\Box\ViewHelpers}
+<f:section name="RightSite">
+	<div class="col-lg-2 col-sm-2 column-right">
+		<box:label sysKey='facebook_link'/>
+		<div class="advertising">
+			<f:for each="{advertisementsRight}" as="advertisement" key="label">
+				<f:link.external uri="{advertisement.link}" title="{advertisement.linkTitle}" target="_blank">
+					<img alt="{advertisement.linkTitle}" src="{f:uri.resource(resource: advertisement.imageResource)}" />
+				</f:link.external>
+			</f:for>
+		</div>
+	</div>
+</f:section>

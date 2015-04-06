@@ -1,0 +1,28 @@
+@media screen and (max-width:1000px) {
+}
+@media screen and (max-width:750px) {
+    #header #lang_shopping {
+        position: static;
+    }
+    #header #lang_shopping #lang {
+        position: absolute;
+        top: 0;
+        right: 90px;
+    }
+    .navbar-toggle {
+        margin-right: 0;
+    }
+    #header #lang_shopping .nav > li {
+        display: inline-block;
+    }
+    #header #lang_shopping #lang ul li a {
+        padding: 3px 10px 7px 13px;
+    }
+    #main_menu .nav {
+        margin: 0;
+    }
+    #main_menu .navbar-nav > li:hover a,
+    #main_menu .navbar-nav > li > a {
+        background: none;
+    }
+}

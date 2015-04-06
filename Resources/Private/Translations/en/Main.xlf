@@ -1,10 +1,82 @@
 <?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file original="" source-language="en" datatype="plaintext">
+	<file original="" source-language="en" target-language="km" datatype="plaintext">
 		<body>
-			<!-- ### Flow.Box ### -->
-			<trans-unit id="flow.box.login">
-				<source>Login</source>
+			<!-- ### Menu Block ### -->
+			<trans-unit id="menu.home">
+				<source>Home</source>
+			</trans-unit>
+			<trans-unit id="menu.bestSale">
+				<source>Best Sale</source>
+			</trans-unit>
+			<trans-unit id="menu.newRelease">
+				<source>New Release</source>
+			</trans-unit>
+			<trans-unit id="menu.publisher">
+				<source>Publisher</source>
+			</trans-unit>
+			<trans-unit id="menu.contact">
+				<source>Contact Us</source>
+			</trans-unit>
+
+			<!-- ### Slideshow Block ### -->
+			<trans-unit id="slide.read_more">
+				<source>Read More</source>
+			</trans-unit>
+
+			<!-- ### Content Block ### -->
+			<trans-unit id="best_sales">
+				<source>Best Sales</source>
+			</trans-unit>
+			<trans-unit id="latest">
+				<source>Latest</source>
+			</trans-unit>
+			<trans-unit id="find_book">
+				<source>FIND BOOK</source>
+			</trans-unit>
+			<trans-unit id="search">
+				<source>Search</source>
+			</trans-unit>
+			<trans-unit id="categories">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="contact_us">
+				<source>Contact Us</source>
+			</trans-unit>
+			<trans-unit id="add_to_cart">
+				<source>ADD</source>
+			</trans-unit>
+
+			/*###  Translate for detail page ###*/
+			<trans-unit id="detail_price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="detail_isbn">
+				<source>ISBN</source>
+			</trans-unit>
+			<trans-unit id="detail_num_of_page">
+				<source>Number of Page</source>
+			</trans-unit>
+			<trans-unit id="detail_lang">
+				<source>Language</source>
+			</trans-unit>
+			<trans-unit id="detail_publisher">
+				<source>Publisher</source>
+			</trans-unit>
+			<trans-unit id="detail_author">
+				<source>Author</source>
+			</trans-unit>
+			<trans-unit id="detail_qty">
+				<source>Qty</source>
+			</trans-unit>
+			<trans-unit id="detail_add_to_cart">
+				<source>Add to Cart</source>
+			</trans-unit>
+			<trans-unit id="detail_dec">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="detail_related_book">
+				<source>Related Book</source>
 			</trans-unit>
 		</body>
 	</file>

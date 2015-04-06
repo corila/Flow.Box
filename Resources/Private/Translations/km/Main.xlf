@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" source-language="km" datatype="plaintext">
+		<body>
+			<!-- ### Menu Block ### -->
+			<trans-unit id="menu.home">
+				<source>ទំព័រដើម</source>
+			</trans-unit>
+			<trans-unit id="menu.bestSale">
+				<source>លក់ដាច់បំផុត</source>
+			</trans-unit>
+			<trans-unit id="menu.newRelease">
+				<source>ចេញថ្មី</source>
+			</trans-unit>
+			<trans-unit id="menu.publisher">
+				<source>អ្នកបោះពុម្ភ</source>
+			</trans-unit>
+			<trans-unit id="menu.contact">
+				<source>ទំនាក់ទំនង</source>
+			</trans-unit>
+
+			<!-- ### Slideshow Block ### -->
+			<trans-unit id="slide.read_more">
+				<source>ពត៏មានលំអិត</source>
+			</trans-unit>
+
+			<!-- ### Content Block ### -->
+			<trans-unit id="best_sales">
+				<source>លក់ដាច់បំផុត</source>
+			</trans-unit>
+			<trans-unit id="latest">
+				<source>ចេញថ្មី</source>
+			</trans-unit>
+			<trans-unit id="find_book">
+				<source>ស្វែងរកសៀវភៅ</source>
+			</trans-unit>
+			<trans-unit id="search">
+				<source>ស្វែងរក</source>
+			</trans-unit>
+			<trans-unit id="categories">
+				<source>ប្រភេទសៀវភៅ</source>
+			</trans-unit>
+			<trans-unit id="contact_us">
+				<source>ទំនាក់ទំនងយើងខ្ញុំ</source>
+			</trans-unit>
+			<trans-unit id="add_to_cart">
+				<source>ADD KH</source>
+			</trans-unit>
+
+			/*###  Translate for detail page ###*/
+			<trans-unit id="detail_price">
+				<source>តំលៃ</source>
+			</trans-unit>
+			<trans-unit id="detail_isbn">
+				<source>ISBN</source>
+			</trans-unit>
+			<trans-unit id="detail_num_of_page">
+				<source>ចំនួនទំព័រ</source>
+			</trans-unit>
+			<trans-unit id="detail_lang">
+				<source>ភាសា</source>
+			</trans-unit>
+			<trans-unit id="detail_publisher">
+				<source>អ្នកបោះពុម្ភ</source>
+			</trans-unit>
+			<trans-unit id="detail_author">
+				<source>អ្នកនិពន្ធ</source>
+			</trans-unit>
+			<trans-unit id="detail_qty">
+				<source>ចំនួន</source>
+			</trans-unit>
+			<trans-unit id="detail_add_to_cart">
+				<source>Add to Cart</source>
+			</trans-unit>
+			<trans-unit id="detail_dec">
+				<source>ការពិពណ៏នា</source>
+			</trans-unit>
+			<trans-unit id="detail_related_book">
+				<source>សៀវភៅដែលទាក់ទង</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,17 @@
+<f:layout name="Login" />
+
+<f:section name="Title">Login</f:section>
+
+<f:section name="Content">
+	<f:form action="authenticate" method="post" class="backend-login-form form-signin">
+		<h3 class="form-signin-heading">Log in - ANACHAKH</h3>
+		<f:render partial="HtmlFlashMessage" arguments="{params: params}"/>
+		<label for="username" class="sr-only">Username</label>
+		<f:form.textfield class="form-control" placeholder="Username" id="username" name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" tabindex="1" />
+		<br>
+		<label for="password" class="sr-only">Password</label>
+		<f:form.password class="form-control" placeholder="Password" id="password" name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" tabindex="2" />
+
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+		</f:form>
+</f:section>

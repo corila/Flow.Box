@@ -1,109 +1,77 @@
-'use strict';
-
 module.exports = function(grunt) {
 
-    grunt.file.defaultEncoding = 'utf-8';
+	// Project configuration.
+	grunt.initConfig({
+		pkg: grunt.file.readJSON('package.json'),
+		concat: {
+			feCss: {
+				src: [
+					'Resources/Private/Styles/Bootstrap/3.0.0/bootstrap.css',
+					'Resources/Private/Styles/select2.min.css',
+					'Resources/Private/Styles/Bootstrap/3.0.0/bootstrap-glyphicons.css',
+					'Resources/Private/Styles/prettify.css',
+					'Resources/Private/Styles/style.css',
+					'Resources/Private/Styles/devices_style.css',
+				],
+				dest: 'Resources/Public/Css/Style.css'
+			},
+			beCss: {
+				src: [
+					'Resources/Private/Styles/Bootstrap/3.0.0/bootstrap.css',
+					'Resources/Private/Styles/select2.min.css',
+					'Resources/Private/Styles/datepicker.css',
+					'Resources/Private/Styles/Bootstrap/3.0.0/bootstrap-glyphicons.css',
+					'Resources/Private/Styles/prettify.css',
+					'Resources/Private/Styles/backend-style.css',
+				],
+				dest: 'Resources/Public/Css/BeStyle.css'
+			}
+		},
+		watch: {
+			feJs: {
+				files: ['Resources/Public/JavaScript/script.js'],
+				tasks: ['uglify:feJs']
+			},
+			beJs: {
+				files: ['Resources/Public/JavaScript/backend-script.js'],
+				tasks: ['uglify:beJS']
+			},
+			feCss: {
+				files: [
+					'Resources/Private/Styles/style.css'
+				],
+				tasks: ['concat:feCss']
+			},
+			beCss: {
+				files: [
+					'Resources/Private/Styles/backend-style.css'
+				],
+				tasks: ['concat:beCss']
+			}
+		},
+		uglify: {
+			feJs: {
+				src: [
+					'Resources/Public/JavaScript/JQuery/1.10.2/jquery.min.js',
+					'Resources/Public/JavaScript/select2.full.js',
+					'Resources/Public/JavaScript/JQuery-validation/jquery.validate.min.js',
+					'Resources/Public/JavaScript/Bootstrap/3.0.0/bootstrap.min.js',
+					'Resources/Public/JavaScript/prettify.min.js',
+					'Resources/Public/JavaScript/ie10-viewport-bug-workaround.js',
+					'Resources/Public/JavaScript/script.js',
+				],
+				dest: 'Resources/Public/JavaScript/Script.min.js'
+			},
+			beJS: {
+				src: 'Resources/Public/JavaScript/backend-script.js',
+				dest: 'Resources/Public/JavaScript/BackendScript.min.js'
+			}
+		}
+	});
 
-    // Project configuration.
-    grunt.initConfig({
-        dirs: {
-            bower: 'Resources/Public/BowerComponents',
-            js: {
-                src: 'Resources/Public/Javascript/Compiled',
-                dest: 'Resources/Public/Javascript'
-            },
-            coffee: {
-                src: 'Resources/Private/Coffeescript',
-                dest: 'Resources/Public/Javascript/Compiled'
-            },
-            sass: {
-                src: 'Resources/Private/Styles',
-                dest: 'Resources/Public/Css'
-            }
-        },
-        compass: {
-            dist: {
-                options: {
-                    config: 'config.rb'
-                }
-            }
-        },
-        uglify: {
-            dist: {
-                src: [
-                    '<%= dirs.js.src %>/*.js'
-                ],
-                dest: '<%= dirs.js.dest %>/app.min.js',
-                options: {
-                    sourceMap: '<%= dirs.js.dest %>/app.min.map',
-                    sourceMappingURL: 'app.min.map',
-                    sourceMapPrefix: 3
-//                    compress: {
-//                        drop_console: true
-//                    }
-                }
-            }
-        },
-        copy: {
-//            main: {
-//                flatten: true,
-//                expand: true,
-//                src: '<%= dirs.bower %>/magnific-popup/dist/magnific-popup.css',
-//                dest: '<%= dirs.sass.dest %>/'
-//            }
-        },
-        concat: {
-            dist: {
-                src: [
-                    '<%= dirs.bower %>/jquery/jquery.min.js'
-                ],
-                dest: '<%= dirs.js.dest %>/libs.min.js'
-            }
-        },
-        coffee: {
-            compile: {
-                options: {
-                    bare: false,
-                    sourceMap: true
-                },
-                files: {
-                    '<%= dirs.coffee.dest %>/cc.management.ui.js': '<%= dirs.coffee.src %>/**/*.coffee'
-                }
-            }
-        },
-        watch: {
-            coffee: {
-                files: ['<%= dirs.coffee.src %>/**/*.coffee'],
-                tasks: ['coffee', 'uglify']
-            },
-            sass: {
-                files: ['<%= dirs.sass.src %>/**/*.scss'],
-                tasks: 'compass'
-            }
-        }
-    });
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
-    // Load the plugin that provides the "concat" task.
-    grunt.loadNpmTasks('grunt-contrib-concat');
-
-    // Load the plugin that provides the "uglify" task.
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-
-    // Load the plugin that provides the "watch" task.
-    grunt.loadNpmTasks('grunt-contrib-watch');
-
-    // Load the plugin that provides the "compass" task.
-    grunt.loadNpmTasks('grunt-contrib-compass');
-
-    // Load the plugin that provides the "coffee" task.
-    grunt.loadNpmTasks('grunt-contrib-coffee');
-
-    // Load the plugin that provides the "copy" task.
-    grunt.loadNpmTasks('grunt-contrib-copy');
-
-    // Default task.
-    grunt.registerTask('default', ['watch']);
-
-    // Build task.
-    grunt.registerTask('build', ['compass', 'coffee', 'uglify', 'concat']);
-}
+	grunt.registerTask('default', ['concat', 'uglify', 'watch']);
+};

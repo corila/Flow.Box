@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+	
+	<!-- Responsive styles for this template -->
+    <link href="css/devices_style.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+      <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+      <div class="navbar-wrapper navbar-fixed-top" id="header">
+      <div class="container">
+
+        <div>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="row">
+                <div class="col-sm-3" id="logo">
+                    <img src="images/logo.jpg" />
+                </div>
+                <div class="col-sm-3 pull-right" id="lang_shopping">
+                    <div id="lang">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#"><i class="icon icon-en"></i>EN</a></li>
+                            <li><a href="#"><i class="icon icon-kh"></i>KH</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="main_menu" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#best_seller">Best Seller</a></li>
+                <li><a href="#new_release">New Release</a></li>
+                <li><a href="#publisher">Publisher</a></li>
+                <li><a href="#contact_us">Contact Us</a></li>
+              </ul>
+            </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="shopping_cart">
+        <div class="show-cart">
+            <i class="sprite_image glyphicon glyphicon-shopping-cart"></i>
+            <!--<a href="#" title="Shopping Cart">Shopping Cart</a>-->
+            <span class="num-in-cart"><i class="arrow_num"></i><span class="num">0</span></span>
+        </div>
+        <div id="list_book_in_cart">
+            <div class="book-lists"></div>
+            <div class="checkout btn-default">
+                <a href="#" title="Check Out">Check Out</a>
+            </div>
+        </div>
+    </div>
+    <div id="alert_message">Book have been added to cart!</div>
+
+    <!-- Carousel
+    ================================================== -->
+    <div class="container">
+        <div id="myCarousel" class="carousel slide">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="item active">
+                <div class="img-slide col-sm-4">
+                    <img src="images/image_detail.jpg" alt="First slide">
+                </div>
+                <div class="carousel-caption col-sm-7">
+                  <h2>Example headline.</h2>
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                  <p><a class="btn btn-large btn-primary" href="#">Read More</a></p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img-slide col-sm-4">
+                    <img src="images/image_detail.jpg" alt="First slide">
+                </div>
+                <div class="carousel-caption col-sm-7">
+                  <h2>Example headline.</h2>
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+				  </p>
+                  <p><a class="btn btn-large btn-primary" href="#">Read More</a></p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img-slide col-sm-4">
+                    <img src="images/image_detail.jpg" alt="First slide">
+                </div>
+                <div class="carousel-caption col-sm-7">
+                  <h2>Example headline.</h2>
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                  <p><a class="btn btn-large btn-primary" href="#">Read More</a></p>
+                </div>
+            </div>
+          </div>
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div><!-- /.carousel -->
+    </div>
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-2 col-sm-2 column-left">
+            <div id="find_book" class="btn-default">
+                <a href="#" class="topopup">Find Book</a>
+            </div>
+			<div>
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<select class="form-control">
+							<option>Select author</option>
+							<option>Author1</option>
+							<option>Author2</option>
+							<option>Author3</option>
+							<option>Author4</option>
+							<option>Author5</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="inputTitle" placeholder="Title"/>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="inputKeyword" placeholder="Keyword" />
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="inputIsbn" placeholder="ISBN" />
+					</div>
+					<div class="form-group">
+						<select class="form-control">
+							<option>Select Category</option>
+							<option>Category1</option>
+							<option>Category2</option>
+							<option>Category3</option>
+							<option>Category4</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-default">Search</button>
+					</div>
+				</form>
+			</div>
+				<div class="list-category">
+					<h4 class="btn-default title">Categories</h4>
+					<ul>
+						<li><a href="#"><i class="icon"></i>Business & Money</a></li>
+						<li><a href="#"><i class="icon"></i>Self Improment</a></li>
+						<li><a href="#"><i class="icon"></i>Education & Teaching</a></li>
+						<li><a href="#"><i class="icon"></i>Vocational Training</a></li>
+						<li><a href="#"><i class="icon"></i>Novel & Magazine</a></li>
+					</ul>
+				</div>
+				<div class="advertising">
+					<a href="#" title="advertising">
+						<img src="images/ads1.png" alt="advertising" />
+					</a>
+					<a href="#" title="advertising">
+						<img src="images/ads.png" alt="advertising" />
+					</a>
+				</div>
+			</div><!-- /.col-lg-4 -->
+        <div class="col-md-8 col-xs-12 column-middle">
+            <div class="content">
+            <div class="row block">
+                <div class="thum-header">
+                    <h3>Best Sales</h3>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book1.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Rainbow rowell</h4>
+                            <span>$34.36</span>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit...</p>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span id="code_12" class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book2.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Book Two</h4>
+                            <span>$34.36</span>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit...</p>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span id="code_13" class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book3.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Book Three</h4>
+                            <span>$34.36</span>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit...</p>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span id="code_14" class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book4.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Book Four</h4>
+                            <span>$34.36</span>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit...</p>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span id="code_15" class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book1.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Book Five</h4>
+                            <span>$34.36</span>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit...</p>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span id="code_16" class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book3.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Rainbow rowell</h4>
+                            <span>$34.36</span>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit...</p>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book2.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Rainbow rowell</h4>
+                            <span>$34.36</span><p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit...</p>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book5.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Rainbow rowell</h4>
+                            <span>$34.36</span>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit...</p>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+               <!--  Latest-->
+              <div class="row block">
+                <div class="thum-header">
+                    <h3>Latest</h3>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book1.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Rainbow rowell</h4>
+                            <span>$34.36</span>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book2.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Rainbow rowell</h4>
+                            <span>$34.36</span>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book3.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Rainbow rowell</h4>
+                            <span>$34.36</span>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book4.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Rainbow rowell</h4>
+                            <span>$34.36</span>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book1.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Rainbow rowell</h4>
+                            <span>$34.36</span>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book3.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Rainbow rowell</h4>
+                            <span>$34.36</span>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book2.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Rainbow rowell</h4>
+                            <span>$34.36</span>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 item">
+                    <div class="thumbnail">
+                        <div class="image">
+                            <a class="" href="#">
+                              <img alt="image1" src="images/book5.jpg">
+                            </a>
+                        </div>
+                        <div class="dec">
+                            <h4 class="title">Rainbow rowell</h4>
+                            <span>$34.36</span>
+                            <div class="container-add-to-cart">
+                                <i class="icon-add-to-cart"></i><span class="add-to-cart">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-2 col-sm-2 column-right">
+            <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+            <div class="advertising">
+                <a href="#" title="advertising">
+                    <img src="images/ads1.png" alt="advertising" />
+                </a>
+                <a href="#" title="advertising">
+                    <img src="images/ads.png" alt="advertising" />
+                </a>
+            </div>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+      <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
+    <!-- FOOTER -->
+      <footer>
+          <div class="container">
+            <ul class="address">
+                <li><i class="icon glyphicon glyphicon-phone "></i>+855(0) 86 589 897</li>
+                <li><i class="icon icon-mail"></i><a href="#">info@anachak.com</a></li>
+                <li><i class="icon icon-location"></i>St. 371, Teuk Thla, Sen Sok, Phnom Penh</li>
+            </ul>
+              <div class="copyright">
+              <p>Copyright &copy; 2015 Anachak. All Rights Reserved</p>
+            </div>
+          </div>
+      </footer>
+    <div id="go_to_top"><i class="go-to-top"></i></div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/holder.js"></script>-->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>

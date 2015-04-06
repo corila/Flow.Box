@@ -1,0 +1,25 @@
+<f:security.ifHasRole role="Flow.Box:SupperAdmin">
+	<f:then>
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="role">Role <span class="required">*</span></label>
+			<div class="col-sm-5">
+				<f:form.select class="form-control required" id="role" name="roles[0]" options="{settings.supperAdminRoles}" value="{user.role.key}"/>
+			</div>
+		</div>
+	</f:then>
+	<f:else>
+		<f:security.ifHasRole role="Flow.Box:Admin">
+			<f:then>
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="role">Role <span class="required">*</span></label>
+					<div class="col-sm-5">
+						<f:form.select class="form-control required" id="role" name="roles[0]" options="{settings.adminRoles}" value="{user.role.key}"/>
+					</div>
+				</div>
+			</f:then>
+			<f:else>
+				<f:form.hidden name="roles[0]" value="Flow.Box:User"/>
+			</f:else>
+		</f:security.ifHasRole>
+	</f:else>
+</f:security.ifHasRole>

@@ -1,0 +1,24 @@
+{namespace box=Flow\Box\ViewHelpers}
+<f:section name="ShoppingCart">
+	<div id="shopping_cart">
+		<div class="show-cart inShow margin-bottom-10" id="in_cart">
+			<span class="glyphicon glyphicon-shopping-cart"></span>
+			<span class="num-in-cart"><i class="arrow_num"></i><span class="num">{countBookInCart}</span></span>
+		</div>
+		<div id="list_book_in_cart">
+			<div class="book-lists">
+				<iframe id="cart-iframe" src="<f:uri.action action='listBooksInCart' controller='Page' />" height="{f:if(condition: showCheckOut, then: '200')}" width="100%" frameborder="0"></iframe>
+
+			</div>
+			<div id="cart-info">
+				<div class="checkout {f:if(condition: showCheckOut, else: 'hidden')}">
+					<f:link.action action="checkOutList" controller="Page" class="btn-default" title="<box:label sysKey='check_out'/>"><box:label sysKey="check_out"/></f:link.action>
+				</div>
+				<p class="no-books-text {f:if(condition: showCheckOut, then: 'hidden')}"><box:label sysKey="empty_cart"/></p>
+
+			</div>
+
+		</div>
+	</div>
+	<div id="alert_message"><box:label sysKey="add_book_to_cart"/></div>
+</f:section>

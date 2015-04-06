@@ -1,0 +1,32 @@
+<f:section name="MainMenu">
+		<div id="main_menu" class="navbar-collapse collapse normal-nav-bar">
+			<ul class="nav navbar-nav col-md-12">
+				<f:for each="{feMenus}" as="feMenu">
+					<f:if condition="{feMenu.sysValue} == 'publisher'">
+						<f:then>
+							<li class="dropdown <f:if condition='{activeMenu} == {feMenu.sysValue}'>active</f:if>">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">{feMenu.name}</span></a>
+
+								<ul class="dropdown-menu" role="menu">
+									<f:for each="{allPublishers}" as="publisher">
+										<li class="">
+											<f:link.action action="publisher"
+														   arguments="{publisher: publisher}"
+														   controller="Page" class="dropdown-toggle <f:if condition='{selectedPublisher} == {publisher}'>sub-active</f:if>">
+												{publisher.name}
+											</f:link.action>
+										</li>
+									</f:for>
+								</ul>
+							</li>
+						</f:then>
+						<f:else>
+							<li class="<f:if condition='{activeMenu} == {feMenu.sysValue}'>active</f:if>">
+								<f:link.action action="{feMenu.sysValue}" controller="Page">{feMenu.name}</f:link.action>
+							</li>
+						</f:else>
+					</f:if>
+				</f:for>
+			</ul>
+		</div>
+</f:section>

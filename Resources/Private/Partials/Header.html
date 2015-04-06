@@ -1,29 +1,28 @@
 <f:section name="Header">
-		<header class="navbar navbar-inverse navbar-fixed-top bb-header" role="banner">
-			<div class="container">
-				<div class="navbar-header">
-					<button class="navbar-toggle" type="button" data-toggle="collapse"
-						data-target=".bs-navbar-collapse">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					
-				</div>
-				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-					<ul class="nav navbar-nav">
-						<li class="first">
-							<f:link.action controller="Page" action="index">Page</f:link.action>
-						</li>
-						<li class="last">
-							<f:link.action controller="Account" action="index">Account</f:link.action>
-						</li>
-					</ul>
-					<ul id="lang-nav" class="nav navbar-nav navbar-right">
-						<li class="active"><a href="/index.php?id=97">Log out</a><i class="lang-bg"></i></li>
-						<li><span class="hidden">Login</span></li>
-					</ul>
-				</nav>
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<div class="row">
+		<div class="col-sm-3" id="logo">
+			<f:link.action action="index" controller="page">
+				<img src="{f:uri.resource(path: 'Images/logo.png')}" />
+			</f:link.action>
+		</div>
+		<div class="col-sm-3 pull-right" id="lang_shopping">
+			<div id="lang">
+				<ul class="nav navbar-nav">
+					<li class="{activeLanguage.km}">
+						<f:link.action action="{currentAction}" arguments="{khmerArguments}"><i class="icon icon-kh"></i>KH</f:link.action>
+					</li>
+					<li class="{activeLanguage.en}">
+						<f:link.action action="{currentAction}" arguments="{englishArguments}"><i class="icon icon-en"></i>EN</f:link.action>
+					</li>
+				</ul>
 			</div>
-		</header>
+		</div>
+	</div>
 </f:section>

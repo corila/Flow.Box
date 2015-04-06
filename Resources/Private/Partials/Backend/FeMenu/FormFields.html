@@ -1,0 +1,47 @@
+<f:render section="LanguageTab" partial="LanguageTab"/>
+<div class="tab-content">
+	<br/>
+	<div role="tabpanel" class="tab-pane active" id="khmerLanguage">
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="name">Name <span class="required">*</span></label>
+			<div class="col-sm-5">
+				<f:form.textfield property="name" id="name" class="form-control" required="true"/>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="sysValue">SysValue <span class="required">*</span></label>
+			<div class="col-sm-5">
+				<f:form.textfield property="sysValue" id="sysValue" class="form-control" required="true" />
+				<p class="help-block"><b>Note: </b>Value that we can put: (index, bestSale, newRelease, publisher, contact)</p>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="menuOrder">Order</label>
+			<div class="col-sm-5">
+				<f:form.select property="menuOrder" options="{availableOrders}" id="menuOrder" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="type">Type</label>
+			<div class="col-sm-5">
+				<f:form.checkbox name="type" id="typeContent" value="1" checked="{f:if(condition: content, then: 'checked')}"/> <label for="typeContent">Content</label>
+			</div>
+		</div>
+		<div class="form-group {f:if(condition: content, else: 'hidden')}" id="description">
+			<label class="col-sm-2 control-label" for="description">Description</label>
+			<div class="col-sm-8">
+				<f:form.textarea name="description" rows="10" value="{content.description}" class="form-control rte" />
+			</div>
+		</div>
+	</div>
+	<div role="tabpanel" class="tab-pane" id="englishLanguage">
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="name">Name</label>
+			<div class="col-sm-5">
+				<f:form.textfield property="translations.en.name" id="name" class="form-control"/>
+			</div>
+		</div>
+	</div>
+</div>

@@ -15,14 +15,47 @@ TYPO3:
             entryPoint: 'WebRedirect'
             entryPointOptions:
               uri: 'backend'
+    i18n:
+      # The default locale identifier.
+      defaultLocale: kh
+      # The fallback rule to use for locale resolution
+      #fallbackRule:
+        # Strictly use the defined order (without implicit locale fallback)
+        #strict: FALSE
+        # The locales identifiers to use in their desired order
+        #order: []
+  SwiftMailer:
+    transport:
+      type: 'Swift_SmtpTransport'
+      options:
+        host: 'smtp.gmail.com'
+        port: '465'
+        username: 'ninja.teamkh@gmail.com'
+        password: 'hnhijmeqkcnoukkl'
+        encryption: 'ssl'
+        localDomain: 'local.anachakh'
+
+Sandstorm:
+  GedmoTranslatableConnector:
+    locale: km_KM
+    defaultLocale: km_KM
 
 Flow:
   Box:
-    limit: 10
-    dateFormat: 'Y-m-d'
-    dateTimeFormat: 'Y-m-d H:i'
+    adminRoles:
+      Flow.Box:Admin: Admin
+      Flow.Box:User: User
+    supperAdminRoles:
+      Flow.Box:SupperAdmin: Supper Admin
+      Flow.Box:Admin: Admin
+      Flow.Box:User: User
+    dateFormat: 'd-m-Y'
+    dateTimeFormat: 'd-m-Y H:i'
     mailFrom: noreply@example.com
-    itemsPerPage: 10
-    insertAbove: 0
-    insertBelow: 1
     maximumNumberOfLinks: 5
+    maxFeMenus: 6
+languages:
+  routing:
+    km: 'km_KM'
+    en: 'en_EN'
+  default: 'km_KM'
