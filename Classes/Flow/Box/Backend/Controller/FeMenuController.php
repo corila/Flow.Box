@@ -153,5 +153,22 @@ class FeMenuController extends MainBackendController {
 			$this->persistenceManager->persistAll();
 		}
 	}
+
+	/**
+	 * @param array $sortingIdentities Identities in soring order
+	 * @return boolean
+	 */
+	public function updateSortingAction(array $sortingIdentities = NULL) {
+		foreach ($sortingIdentities as $key => $recordIDValue) {
+			/** @var FeMenu $item */
+			$item = $this->feMenuRepository->findByIdentifier($recordIDValue);
+			if ($item) {
+				$item->setMenuOrder($key);
+				$this->feMenuRepository->update($item);
+			}
+		}
+
+		return TRUE;
+	}
 }
 ?>

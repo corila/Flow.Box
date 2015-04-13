@@ -18,6 +18,7 @@ class LabelRepository extends Repository {
 	 * @var array
 	 */
 	protected $defaultOrderings = array(
+		'sorting' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_ASCENDING,
 		'labelName' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_ASCENDING
 	);
 

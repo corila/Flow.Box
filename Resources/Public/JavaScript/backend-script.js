@@ -123,4 +123,39 @@ jQuery(function($) {
 		}
 	});
 	$('.tokenize').select2({});
+
+
+	// drag and drop sorting table
+	jQuery('table.feMenu-sortable tbody').sortable({
+		opacity: 0.6,
+		cursor: 'move',
+		helper: 'clone',
+		update: function() {
+			jQuery.ajax({
+				type: 'PUT',
+				url: 'backend/femenu/updateSorting',
+				data: {
+					__csrfToken: jQuery('input[name="__csrfToken"]').val(),
+					sortingIdentities: jQuery(this).sortable('toArray')
+				}
+			});
+		}
+	});
+
+	// drag and drop sorting table
+	jQuery('table.label-sortable tbody').sortable({
+		opacity: 0.6,
+		cursor: 'move',
+		helper: 'clone',
+		update: function() {
+			jQuery.ajax({
+				type: 'PUT',
+				url: 'backend/label/updateSorting',
+				data: {
+					__csrfToken: jQuery('input[name="__csrfToken"]').val(),
+					sortingIdentities: jQuery(this).sortable('toArray')
+				}
+			});
+		}
+	});
 }); // jQuery End

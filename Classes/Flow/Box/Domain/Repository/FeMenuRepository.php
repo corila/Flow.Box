@@ -14,7 +14,6 @@ use TYPO3\Flow\Persistence\Repository;
  */
 class FeMenuRepository extends Repository {
 
-
 	/**
 	 * @var array
 	 */

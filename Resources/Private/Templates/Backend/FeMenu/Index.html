@@ -10,8 +10,9 @@
 <f:section name="Content">
 	<f:if condition="{feMenus}">
 		<f:then>
+			<input type="hidden" name="__csrfToken" value="{csrfToken->f:format.htmlspecialchars(encoding: 'ISO-8859-1')}" />
 			<box:widget.paginate objects="{feMenus}" as="paginatedFeMenus" configuration="{itemsPerPage: 20}">
-				<table class="table table-striped">
+				<table class="table table-striped feMenu-sortable">
 					<thead>
 					<tr>
 						<th>Name</th>
@@ -22,7 +23,7 @@
 					</thead>
 					<tbody>
 					<f:for each="{paginatedFeMenus}" as="feMenu">
-						<tr>
+						<tr class='click-able-Row' id="{feMenu.identity}">
 							<td>{feMenu.name}</td>
 							<td>{feMenu.sysValue}</td>
 							<td>{feMenu.menuOrder}</td>

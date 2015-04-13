@@ -249,3 +249,7 @@ span.select2-container, span.select2-selection--multiple {
 .labelGroup span {
 	color: #ffffff;
 }
+
+tr.click-able-Row {
+	cursor: pointer;
+}

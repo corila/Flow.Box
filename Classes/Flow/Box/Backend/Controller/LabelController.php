@@ -88,4 +88,20 @@ class LabelController extends MainBackendController {
 		$this->redirect('index');
 	}
 
+	/**
+	 * @param array $sortingIdentities Identities in soring order
+	 * @return boolean
+	 */
+	public function updateSortingAction(array $sortingIdentities = NULL) {
+		foreach ($sortingIdentities as $key => $recordIDValue) {
+			$item = $this->labelRepository->findByIdentifier($recordIDValue);
+			if ($item) {
+				$item->setSorting($key);
+				$this->labelRepository->update($item);
+			}
+		}
+
+		return TRUE;
+	}
+
 }

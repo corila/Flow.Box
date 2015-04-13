@@ -64,12 +64,15 @@ abstract class MainBackendController extends ActionController {
 	 */
 	protected function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view) {
 		$view->assign('activeMenu', $this->activeMenu);
+		$csrfToken = $this->securityContext->getCsrfProtectionToken();
 		$view->assignMultiple(
 			array(
 				'activeMenu' => $this->activeMenu,
-				'currentUser' => $this->account
+				'currentUser' => $this->account,
+				'csrfToken' => $csrfToken
 			)
 		);
+
 	}
 
 	/**

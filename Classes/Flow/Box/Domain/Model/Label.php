@@ -20,6 +20,12 @@ class Label {
 	use TranslatableTrait;
 
 	/**
+	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+	 * @Flow\Inject
+	 */
+	protected $persistenceManager;
+
+	/**
 	 * @var string
 	 */
 	protected $labelName;
@@ -37,6 +43,18 @@ class Label {
 	 * @Gedmo\Translatable
 	 */
 	protected $sysValue;
+
+	/**
+	 * @var integer
+	 */
+	protected $sorting = 999999;
+
+	/**
+	 * @return string
+	 */
+	public function getIdentity() {
+		return $this->persistenceManager->getIdentifierByObject($this);
+	}
 
 	/**
 	 * @return string
@@ -78,6 +96,20 @@ class Label {
 	 */
 	public function setSysValue($sysValue) {
 		$this->sysValue = $sysValue;
+	}
+
+	/**
+	 * @return integer
+	 */
+	public function getSorting() {
+		return $this->sorting;
+	}
+
+	/**
+	 * @param integer $sorting
+	 */
+	public function setSorting($sorting) {
+		$this->sorting = $sorting;
 	}
 
 }

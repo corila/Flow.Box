@@ -19,6 +19,12 @@ class FeMenu {
 	use TranslatableTrait;
 
 	/**
+	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+	 * @Flow\Inject
+	 */
+	protected $persistenceManager;
+
+	/**
 	 * @var string
 	 * @Gedmo\Translatable
 	 */
@@ -48,6 +54,13 @@ class FeMenu {
 	 * @ORM\ManyToOne
 	 */
 	protected $childrenMenu;
+
+	/**
+	 * @return string
+	 */
+	public function getIdentity() {
+		return $this->persistenceManager->getIdentifierByObject($this);
+	}
 
 
 	/**

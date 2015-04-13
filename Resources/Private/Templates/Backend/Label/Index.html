@@ -16,8 +16,9 @@
 	</f:form>
 	<f:if condition="{labels}">
 		<f:then>
+			<input type="hidden" name="__csrfToken" value="{csrfToken->f:format.htmlspecialchars(encoding: 'ISO-8859-1')}" />
 			<box:widget.paginate objects="{labels}" as="paginatedLabels" configuration="{itemsPerPage: 20}">
-			<table class="table table-striped">
+			<table class="table table-striped label-sortable">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -30,7 +31,7 @@
 				</thead>
 				<tbody>
 					<f:for each="{paginatedLabels}" as="label">
-						<tr>
+						<tr class='click-able-Row' id="{label.identity}">
 							<td>{label.labelName}</td>
 							<td>{label.sysKey}</td>
 							<td>{label.sysValue -> f:format.crop(maxCharacters: '50')}</td>
